@@ -5,7 +5,7 @@ export function detectLanguage(saved, languages = []) {
 
 // Translation HTML is authored here, never supplied by catalog or user input.
 export const englishPage = [
-  ['title', 'Mod Hub — More miles. More realism.'],
+  ['title', 'Rhaider Mod Hub — More miles. More realism.'],
   ['.skip', 'Skip to catalog'],
   ['.nav-active', 'Explore mods'],
   ['.header nav a:last-child', 'How it works'],
@@ -47,8 +47,8 @@ export const englishPage = [
 ];
 
 export const englishAttributes = [
-  ['meta[name="description"]', 'content', 'Mod Hub: more realism in every mile. Explore mods for Euro Truck Simulator 2 and American Truck Simulator.'],
-  ['.header .brand', 'aria-label', 'Mod Hub, home'],
+  ['meta[name="description"]', 'content', 'Rhaider Mod Hub: more realism in every mile. Explore mods for Euro Truck Simulator 2 and American Truck Simulator.'],
+  ['.header .brand', 'aria-label', 'Rhaider Mod Hub, home'],
   ['.header nav', 'aria-label', 'Main navigation'],
   ['.game-tabs', 'aria-label', 'Filter by game'],
   ['.categories', 'aria-label', 'Filter by category'],

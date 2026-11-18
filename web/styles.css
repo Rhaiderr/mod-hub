@@ -128,3 +128,26 @@
   .steps li { padding-left: 42px; }
   .support h2 { font-size: 28px; }
 }
+
+.brand {
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.brand .brand-signature {
+  display: grid;
+  gap: 4px;
+  font: 800 17px/1 var(--font);
+  letter-spacing: .065em;
+}
+.brand .brand-signature small {
+  margin: 0;
+  font: 600 9px/1 var(--font);
+  letter-spacing: .21em;
+}
+.footer .brand-signature { font-size: 15px; }
+@media (max-width: 420px) {
+  .header .brand { gap: 6px; }
+  .header .brand img { width: 36px; height: 36px; }
+  .header .brand-signature { font-size: 15px; }
+}
