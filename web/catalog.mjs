@@ -6,9 +6,9 @@ export const mods = [
   { id: 'carreta-guerra', name: 'Carreta Guerra', category: 'carretas', label: 'Carretas & composições', version: '0.5.0', beta: false, games: ['ets2'], image: 'assets/carreta-guerra.jpg', alt: 'Arte ilustrativa Guerra BR com carretas graneleiras e as composições 4 eixos, Vanderléia, bitrem e rodotrem', description: 'O peso e a presença das estradas brasileiras. Quatro composições Guerra: 4 eixos, Vanderléia, bitrem e rodotrem.', compatibility: 'ETS2 · versão testada 1.62', distribution: 'steam', requirements: ['Euro Truck Simulator 2 1.62.', 'Não exige DLCs nem outro mod de carreta.', 'Sem suporte ao ATS; multiplayer não testado.'], installation: 'Na versão final, acesse o item no Steam Workshop, inscreva-se e ative Guerra BR no Gerenciador de Mods do ETS2. Nesta prévia, o link da Steam ainda está em revisão.' }
 ];
 
-export function filterMods(items, { game = 'all', category = 'all', query = '', sort = 'featured' } = {}) {
-  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
+export function filterMods(items, { game = 'all', category = 'all', query = '', sort = 'featured', locale = 'pt-BR' } = {}) {
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase(locale);
   const search = normalize(query.trim());
   const result = items.filter(mod => (game === 'all' || mod.games.includes(game)) && (category === 'all' || mod.category === category) && normalize(mod.name + ' ' + mod.description).includes(search));
-  return sort === 'name' ? result.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR')) : result;
+  return sort === 'name' ? result.sort((a, b) => a.name.localeCompare(b.name, locale)) : result;
 }

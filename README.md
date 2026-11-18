@@ -6,6 +6,10 @@ Um catálogo independente de mods para Euro Truck Simulator 2 e American Truck S
 
 > Esta versão é para validação visual. Os botões de download e apoio são demonstrativos, não iniciam downloads nem pagamentos. Carreta Guerra exibe um destino demonstrativo para a Steam Workshop, também sem link ativo. Links oficiais e compatibilidade serão revisados antes da versão funcional. Não há instalação automática nem integração com o jogo nesta página.
 
+## Idiomas
+
+O seletor no cabeçalho alterna entre PT-BR e inglês, incluindo cards, detalhes, filtros e avisos acessíveis. Na primeira visita, `navigator.languages[0]` (ou `navigator.language`) determina o idioma: `pt-BR` usa português; os demais usam inglês. Não consulta IP nem localização. A escolha manual fica em `localStorage`; se o armazenamento estiver bloqueado, continua funcionando durante a visita. A arte das capas permanece original.
+
 ## Ver a página localmente
 
 A página é HTML/CSS/JavaScript estático, sem build ou dependências de frontend.

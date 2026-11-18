@@ -15,6 +15,7 @@
   <header class="header wrap">
     <a class="brand" href="#inicio" aria-label="Mod Hub, início"><img src="assets/mark.svg" width="35" height="35" alt=""><span>MOD<span class="brand-light">HUB</span><small>ETS2 / ATS</small></span></a>
     <nav aria-label="Navegação principal"><a class="nav-active" href="#catalogo">Explorar mods</a><a href="#como-funciona">Como funciona</a></nav>
+    <label class="language-switch"><span class="sr-only">Idioma / Language</span><select id="language" aria-label="Idioma / Language"><option value="pt-BR" lang="pt-BR">PT-BR</option><option value="en" lang="en">EN</option></select></label>
     <button class="header-action" data-demo="Apoiar o projeto">Apoie o projeto <span aria-hidden="true">↗</span></button>
   </header>
   <main id="inicio">
@@ -57,7 +58,7 @@
         <div class="game-tabs" role="group" aria-label="Filtrar por jogo"><button class="selected" data-game="all" aria-pressed="true">Todos os jogos</button><button data-game="ets2" aria-pressed="false">ETS2</button><button data-game="ats" aria-pressed="false">ATS</button></div>
         <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar um mod…" aria-label="Buscar mods"></label>
       </div>
-      <div class="filter-row"><div class="categories" role="group" aria-label="Filtrar por categoria"><button data-category="all" class="selected" aria-pressed="true">Todos</button><button data-category="realismo" aria-pressed="false">Realismo</button><button data-category="visual" aria-pressed="false">Visual</button><button data-category="clima" aria-pressed="false">Clima</button><button data-category="carretas" aria-pressed="false">Carretas</button></div><label class="sort-label">Ordenar por <select id="sort" aria-label="Ordenar mods"><option value="featured">Destaques</option><option value="name">Nome A–Z</option></select></label></div>
+      <div class="filter-row"><div class="categories" role="group" aria-label="Filtrar por categoria"><button data-category="all" class="selected" aria-pressed="true">Todos</button><button data-category="realismo" aria-pressed="false">Realismo</button><button data-category="visual" aria-pressed="false">Visual</button><button data-category="clima" aria-pressed="false">Clima</button><button data-category="carretas" aria-pressed="false">Carretas</button></div><label class="sort-label"><span id="sort-label">Ordenar por</span> <select id="sort" aria-label="Ordenar mods"><option value="featured">Destaques</option><option value="name">Nome A–Z</option></select></label></div>
       <p id="results-status" class="sr-only" role="status" aria-live="polite"></p>
       <div class="cards" id="cards"></div>
       <div class="empty" id="empty" hidden><h3>Nenhum mod por aqui.</h3><p>Tente outro nome ou uma combinação diferente de filtros.</p><button class="button secondary" id="clear">Limpar filtros</button></div>
