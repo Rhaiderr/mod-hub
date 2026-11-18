@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#e6c35a"/><path d="m9 28 5-16h5l1 8 5-8h6l-5 16h-5l3-9-6 9h-3l-1-9-3 9z" fill="#171a14"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <title>Rhaider — R de retorno</title>
+  <rect width="48" height="48" rx="11" fill="#ffac45"/>
+  <path fill="#181a1c" d="m7 38 7-28h16c8 0 12 5 10 12-1 4-4 7-9 8l7 8H27L17 25h10c4 0 6-2 6-5 0-2-1-3-4-3h-9l-5 21z"/>
+</svg>
