@@ -4,7 +4,7 @@
 
 Um catálogo independente de mods para Euro Truck Simulator 2 e American Truck Simulator. Tema escuro, busca, filtros por jogo/categoria e detalhes de cada mod, adaptados para telas pequenas.
 
-> Esta versão é para validação visual. Os botões de download e apoio são demonstrativos, não iniciam downloads nem pagamentos. Carreta Guerra exibe um destino demonstrativo para a Steam Workshop, também sem link ativo. Links oficiais e compatibilidade serão revisados antes da versão funcional. Não há instalação automática nem integração com o jogo nesta página.
+> O Tire Wear 0.3.2 tem download público pelo Mod Hub. Os botões de apoio e de download dos demais mods são demonstrativos.
 
 ## Idiomas
 

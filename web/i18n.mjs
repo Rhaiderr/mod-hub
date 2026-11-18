@@ -46,7 +46,7 @@ export const englishPage = [
   ['.steps li:nth-child(2) h3', 'Check before you set off'],
   ['.steps li:nth-child(2) p', 'Check the version and instructions. Each mod has its own installation steps.'],
   ['.steps li:nth-child(3) h3', 'Get back on the road'],
-  ['.steps li:nth-child(3) p', 'In the final version, mods will come from official Releases or the Steam Workshop. Downloads in this preview are demonstrations.'],
+  ['.steps li:nth-child(3) p', 'Download Tire Wear from the catalog. The buttons for the other mods are demos.'],
   ['.support .eyebrow', 'MADE IN OUR SPARE TIME. FOR HOURS OF PLAY.'],
   ['.support h2', 'Enjoying the journey?'],
   ['.support p:last-child', 'Your support helps keep these projects on the road.'],

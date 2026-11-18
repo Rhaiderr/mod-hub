@@ -45,8 +45,11 @@
     const list = element('ul');
     mod.requirements.forEach(requirement => list.append(element('li', '', requirement)));
     content.append(list, element('h3', '', text().install), element('p', '', mod.installation), element('p', 'dialog-note', text().note));
-    const button = element('button', 'button primary', mod.distribution === 'steam' ? text().steam : text().downloadDemo);
-    button.addEventListener('click', () => { details.close(); showDemo(text().action(mod)); });
+    const button = mod.downloadUrl
+      ? element('a', 'button primary', text().download)
+      : element('button', 'button primary', mod.distribution === 'steam' ? text().steam : text().downloadDemo);
+    if (mod.downloadUrl) button.href = mod.downloadUrl;
+    else button.addEventListener('click', () => { details.close(); showDemo(text().action(mod)); });
     content.append(button);
     openDialog(details);
   }
@@ -74,9 +77,14 @@
       const detail = element('button', 'detail-button', text().details);
       detail.setAttribute('aria-label', text().detailsLabel(mod.name));
       detail.addEventListener('click', () => showDetails(mod));
-      const download = element('button', 'download-button', mod.distribution === 'steam' ? text().steam : text().download);
-      download.setAttribute('aria-label', mod.distribution === 'steam' ? text().steamLabel(mod.name) : text().downloadLabel(mod.name));
-      download.addEventListener('click', () => showDemo(text().action(mod)));
+      const download = element(mod.downloadUrl ? 'a' : 'button', 'download-button', mod.distribution === 'steam' ? text().steam : text().download);
+      if (mod.downloadUrl) {
+        download.href = mod.downloadUrl;
+        download.setAttribute('aria-label', text().action(mod));
+      } else {
+        download.setAttribute('aria-label', mod.distribution === 'steam' ? text().steamLabel(mod.name) : text().downloadLabel(mod.name));
+        download.addEventListener('click', () => showDemo(text().action(mod)));
+      }
       bottom.append(detail, download);
       body.append(bottom);
       card.append(visual, body);

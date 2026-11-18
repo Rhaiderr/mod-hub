@@ -13,7 +13,7 @@ test('catalog filters combine game, category and normalized search', () => {
   assert.deepEqual(filterMods(mods, {sort:'name'}).map(mod => mod.name), ['Carreta Guerra','Clima Real','Tire Wear','Truck Dirt']);
   assert.equal(mods[0].id, 'tire-wear');
 });
-test('preview uses local assets and has no live download or payment destination', () => {
+test('preview uses local artwork and accessible status', () => {
   for (const mod of mods) assert.ok(existsSync(new URL('../web/'+mod.image, import.meta.url)));
   const html = readFileSync(new URL('../web/index.html', import.meta.url), 'utf8');
   assert.ok(!/href="https?:/.test(html));
@@ -30,11 +30,19 @@ test('Carreta Guerra is ETS2-only and previews Steam Workshop without a live lin
   assert.equal(filterMods(mods, {query:'guerra'})[0], guerra);
   for (const mod of mods) {
     assert.equal(mod.url, undefined);
-    assert.equal(mod.downloadUrl, undefined);
     assert.equal(mod.workshopUrl, undefined);
   }
 });
 
+
+test('Tire Wear is the only mod with a live download', () => {
+  const [tireWear] = mods.filter(mod => mod.downloadUrl);
+  const manifest = JSON.parse(readFileSync(new URL('../catalog/manifest.json', import.meta.url), 'utf8'));
+  assert.deepEqual(mods.filter(mod => mod.downloadUrl).map(mod => mod.id), ['tire-wear']);
+  assert.equal(tireWear.beta, false);
+  assert.equal(tireWear.version, manifest.plugins[0].stable.version);
+  assert.equal(tireWear.downloadUrl, manifest.plugins[0].stable.download_url);
+});
 
 test('language detection respects preferred browser locale and saved choice', () => {
   assert.equal(detectLanguage(null, ['pt-BR', 'en-US']), 'pt-BR');

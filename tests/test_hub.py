@@ -14,10 +14,10 @@ class CatalogTests(unittest.TestCase):
         self.plugins = json.loads((hub.ROOT / 'catalog/plugins.json').read_text())
         self.fetch = lambda repo: json.loads((hub.ROOT / 'tests' / (repo.split('/')[1]+'.json')).read_text())
 
-    def test_real_releases_and_beta_flag_mismatch(self):
+    def test_real_releases_and_channels(self):
         catalog = hub.build(self.plugins, self.fetch)
-        self.assertEqual(catalog['plugins'][0]['beta']['version'], '0.3.2-beta')
-        self.assertIsNone(catalog['plugins'][0]['stable'])
+        self.assertEqual(catalog['plugins'][0]['stable']['version'], '0.3.2')
+        self.assertIsNone(catalog['plugins'][0]['beta'])
         self.assertEqual(catalog['plugins'][1]['stable']['version'], '0.1.6')
         self.assertNotIn('ats', catalog['plugins'][2]['compatibility'])
 
