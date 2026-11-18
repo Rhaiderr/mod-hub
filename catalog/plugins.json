@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ets2-tire-wear",
+    "name": "Tire Wear",
+    "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
+    "category": "realismo",
+    "repository": "Rhaiderr/ets2-tire-wear",
+    "asset": "ets2-tire-wear.zip",
+    "compatibility": {
+      "ets2": [
+        "1.61"
+      ],
+      "ats": [
+        "1.61"
+      ]
+    },
+    "requirements": [
+      "Windows 10/11 x64",
+      "DirectX 11",
+      "Single player"
+    ],
+    "installation": "Com o jogo fechado, copiar DLL e INI para bin/win_x64/plugins; preservar o INI existente."
+  },
+  {
+    "id": "ets2-truck-dirt",
+    "name": "Truck Dirt",
+    "description": "Sujeira dinâmica e lavagem de caminhões, carretas e cargas.",
+    "category": "visual",
+    "repository": "Rhaiderr/ets2-truck-dirt",
+    "asset": "ets2-truck-dirt.zip",
+    "compatibility": {
+      "ets2": [
+        "1.62"
+      ],
+      "ats": [
+        "1.62"
+      ]
+    },
+    "requirements": [
+      "Windows 10/11 x64",
+      "DirectX 11",
+      "Single player"
+    ],
+    "installation": "Com o jogo fechado, copiar o conteúdo de plugins do ZIP, incluindo premap; preservar o INI existente."
+  },
+  {
+    "id": "ets2-brbrasil-climate",
+    "name": "BR Brasil — Clima Real",
+    "description": "Temperaturas regionais de verão para o mapa BR Brasil.",
+    "category": "clima",
+    "repository": "Rhaiderr/ets2-brbrasil-climate",
+    "asset": "brbrasil-clima-real-verao.scs",
+    "compatibility": {
+      "ets2": [
+        "1.62"
+      ]
+    },
+    "requirements": [
+      "BR Brasil 6.1"
+    ],
+    "installation": "Copiar o SCS para a pasta mod e ativá-lo acima dos pacotes BR Brasil. Fazer backup do perfil."
+  }
+]

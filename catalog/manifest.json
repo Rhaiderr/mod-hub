@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "plugins": [
+    {
+      "id": "ets2-tire-wear",
+      "name": "Tire Wear",
+      "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
+      "category": "realismo",
+      "repository": "Rhaiderr/ets2-tire-wear",
+      "asset": "ets2-tire-wear.zip",
+      "compatibility": {
+        "ets2": [
+          "1.61"
+        ],
+        "ats": [
+          "1.61"
+        ]
+      },
+      "requirements": [
+        "Windows 10/11 x64",
+        "DirectX 11",
+        "Single player"
+      ],
+      "installation": "Com o jogo fechado, copiar DLL e INI para bin/win_x64/plugins; preservar o INI existente.",
+      "stable": null,
+      "beta": {
+        "version": "0.3.2-beta",
+        "published_at": "2026-10-25T19:06:20Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2-beta/ets2-tire-wear.zip",
+        "sha256": "1ed1be7c11174ca45233aeb3654aeb4df7568f51a1b5a592f7acc440b1436c77",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2-beta"
+      }
+    },
+    {
+      "id": "ets2-truck-dirt",
+      "name": "Truck Dirt",
+      "description": "Sujeira dinâmica e lavagem de caminhões, carretas e cargas.",
+      "category": "visual",
+      "repository": "Rhaiderr/ets2-truck-dirt",
+      "asset": "ets2-truck-dirt.zip",
+      "compatibility": {
+        "ets2": [
+          "1.62"
+        ],
+        "ats": [
+          "1.62"
+        ]
+      },
+      "requirements": [
+        "Windows 10/11 x64",
+        "DirectX 11",
+        "Single player"
+      ],
+      "installation": "Com o jogo fechado, copiar o conteúdo de plugins do ZIP, incluindo premap; preservar o INI existente.",
+      "stable": {
+        "version": "0.1.6",
+        "published_at": "2026-11-12T20:32:54Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.6/ets2-truck-dirt.zip",
+        "sha256": "1d4f9a2ef0681f5e850ffd7b834284f4360e7cb13ed73c3f2f528af4d83a8721",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.6"
+      },
+      "beta": {
+        "version": "0.1.0-beta",
+        "published_at": "2026-11-01T00:57:43Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.0-beta/ets2-truck-dirt.zip",
+        "sha256": "b22f98039364815c5c97a80eaac9a12c272f2c19f1a36c39dc42d05e72fa0b25",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.0-beta"
+      }
+    },
+    {
+      "id": "ets2-brbrasil-climate",
+      "name": "BR Brasil — Clima Real",
+      "description": "Temperaturas regionais de verão para o mapa BR Brasil.",
+      "category": "clima",
+      "repository": "Rhaiderr/ets2-brbrasil-climate",
+      "asset": "brbrasil-clima-real-verao.scs",
+      "compatibility": {
+        "ets2": [
+          "1.62"
+        ]
+      },
+      "requirements": [
+        "BR Brasil 6.1"
+      ],
+      "installation": "Copiar o SCS para a pasta mod e ativá-lo acima dos pacotes BR Brasil. Fazer backup do perfil.",
+      "stable": {
+        "version": "1.0.2",
+        "published_at": "2026-11-09T02:01:49Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/download/v1.0.2/brbrasil-clima-real-verao.scs",
+        "sha256": "dc197e7de5799b8d882b7ad06854e8837a34f9ef910486efb3e120e17c669e49",
+        "release_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/tag/v1.0.2"
+      },
+      "beta": null
+    }
+  ]
+}

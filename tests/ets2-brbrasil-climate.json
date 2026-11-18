@@ -1,0 +1,29 @@
+[
+  {
+    "tag_name": "v1.0.2",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-09T02:01:49Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/tag/v1.0.2",
+    "assets": [
+      {
+        "name": "brbrasil-clima-real-1.0.2.zip",
+        "state": "uploaded",
+        "digest": "sha256:1bfb883c17fb450bce7772bbf3dc2739368eceb232fdb3571e69de4d3d35793b",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/download/v1.0.2/brbrasil-clima-real-1.0.2.zip"
+      },
+      {
+        "name": "brbrasil-clima-real-verao.scs",
+        "state": "uploaded",
+        "digest": "sha256:dc197e7de5799b8d882b7ad06854e8837a34f9ef910486efb3e120e17c669e49",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/download/v1.0.2/brbrasil-clima-real-verao.scs"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "state": "uploaded",
+        "digest": "sha256:f5e85477db17c7120d1405b374260e263f74a24f0d45125c68c08d768e2a0f53",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/download/v1.0.2/SHA256SUMS.txt"
+      }
+    ]
+  }
+]

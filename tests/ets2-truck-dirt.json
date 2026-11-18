@@ -1,0 +1,107 @@
+[
+  {
+    "tag_name": "v0.1.6",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-12T20:32:54Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.6",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:1d4f9a2ef0681f5e850ffd7b834284f4360e7cb13ed73c3f2f528af4d83a8721",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.6/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.5",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-07T03:22:37Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.5",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:49c1d4ca3b80f685dd5a32311522f50d0fcceb4ad4dea92bcb724ee9507c691d",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.5/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.4",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-07T00:30:28Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.4",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:d8f7844bb9248d9928ab70f8794d106e1ba195d7acb230fb0473fa5dc1222fb3",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.4/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.3",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-05T23:48:06Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.3",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:e5ee01cca8d960d02596a55d5643ccca81b0b1b16b6392e1e7023c21793814e0",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.3/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.2",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-05T20:58:16Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.2",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:a23d29fc8617f4a62f2b9830d7f0078ab1e8d70f55631a136a5d4e5fc0cf756e",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.2/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.1",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-05T19:36:43Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.1",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:eb837d8bd8e3f7ed1a8ad6897534f4e75fed837f5a9998a0b9fb67a0df2e7365",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.1/ets2-truck-dirt.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.1.0-beta",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-11-01T00:57:43Z",
+    "html_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.0-beta",
+    "assets": [
+      {
+        "name": "ets2-truck-dirt.zip",
+        "state": "uploaded",
+        "digest": "sha256:b22f98039364815c5c97a80eaac9a12c272f2c19f1a36c39dc42d05e72fa0b25",
+        "browser_download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.0-beta/ets2-truck-dirt.zip"
+      }
+    ]
+  }
+]
