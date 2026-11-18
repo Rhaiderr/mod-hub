@@ -30,9 +30,9 @@
     content.append(element('h3', '', 'Antes de pegar a estrada'));
     const list = element('ul');
     mod.requirements.forEach(requirement => list.append(element('li', '', requirement)));
-    content.append(list, element('h3', '', 'Instalação manual'), element('p', '', mod.installation), element('p', 'dialog-note', 'Prévia para validação visual. Versões e compatibilidade são referências do catálogo e ainda serão revisadas. A imagem é ilustrativa.'));
-    const button = element('button', 'button primary', 'Download demonstrativo ↗');
-    button.addEventListener('click', () => { details.close(); showDemo(`Baixar ${mod.name}`); });
+    content.append(list, element('h3', '', 'Como instalar'), element('p', '', mod.installation), element('p', 'dialog-note', 'Prévia para validação visual. Versões e compatibilidade são referências do catálogo e ainda serão revisadas. A imagem é ilustrativa.'));
+    const button = element('button', 'button primary', mod.distribution === 'steam' ? 'Ver na Steam ↗' : 'Download demonstrativo ↗');
+    button.addEventListener('click', () => { details.close(); showDemo(mod.distribution === 'steam' ? `Abrir ${mod.name} na Steam Workshop` : `Baixar ${mod.name}`); });
     content.append(button);
     openDialog(details);
   }
@@ -48,7 +48,7 @@
       image.width = 640;
       image.height = 376;
       image.loading = 'lazy';
-      visual.append(image, element('span', `card-tag${mod.beta ? ' beta' : ''}`, mod.beta ? 'BETA' : 'GRATUITO'));
+      visual.append(image, element('span', `card-tag${mod.beta ? ' beta' : ''}`, mod.beta ? 'BETA' : mod.distribution === 'steam' ? 'STEAM WORKSHOP' : 'GRATUITO'));
       const games = element('div', 'card-games');
       mod.games.forEach(game => games.append(element('span', '', game.toUpperCase())));
       visual.append(games);
@@ -60,9 +60,9 @@
       const detail = element('button', 'detail-button', 'Ver detalhes →');
       detail.setAttribute('aria-label', `Ver detalhes de ${mod.name}`);
       detail.addEventListener('click', () => showDetails(mod));
-      const download = element('button', 'download-button', 'Download ↓');
-      download.setAttribute('aria-label', `Download demonstrativo de ${mod.name}`);
-      download.addEventListener('click', () => showDemo(`Baixar ${mod.name}`));
+      const download = element('button', 'download-button', mod.distribution === 'steam' ? 'Ver na Steam ↗' : 'Download ↓');
+      download.setAttribute('aria-label', mod.distribution === 'steam' ? `Ver ${mod.name} na Steam Workshop (demonstrativo)` : `Download demonstrativo de ${mod.name}`);
+      download.addEventListener('click', () => showDemo(mod.distribution === 'steam' ? `Abrir ${mod.name} na Steam Workshop` : `Baixar ${mod.name}`));
       bottom.append(detail, download);
       body.append(bottom);
       card.append(visual, body);
@@ -98,6 +98,7 @@
     dialog.addEventListener('close', () => { if (!document.querySelector('dialog[open]') && returnFocus?.isConnected) returnFocus.focus(); });
   });
   document.querySelector('#demo-ok').addEventListener('click', () => demo.close());
+  document.querySelector('#total-count').textContent = String(mods.length).padStart(2, '0');
   render();
 })().catch(() => {
   document.querySelector('#cards').textContent = 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.';

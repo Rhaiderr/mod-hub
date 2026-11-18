@@ -4,7 +4,7 @@
 
 Um catálogo independente de mods para Euro Truck Simulator 2 e American Truck Simulator. Tema escuro, busca, filtros por jogo/categoria e detalhes de cada mod, adaptados para telas pequenas.
 
-> Esta versão é para validação visual. Os botões de download e apoio são demonstrativos, não iniciam downloads nem pagamentos. Links oficiais e compatibilidade serão revisados antes da versão funcional. Não há instalação automática nem integração com o jogo nesta página.
+> Esta versão é para validação visual. Os botões de download e apoio são demonstrativos, não iniciam downloads nem pagamentos. Carreta Guerra exibe um destino demonstrativo para a Steam Workshop, também sem link ativo. Links oficiais e compatibilidade serão revisados antes da versão funcional. Não há instalação automática nem integração com o jogo nesta página.
 
 ## Ver a página localmente
 
@@ -14,7 +14,7 @@ A página é HTML/CSS/JavaScript estático, sem build ou dependências de fronte
 python3 -m http.server 8765 --directory web
 ```
 
-Abra `http://localhost:8765`. O catálogo visual está em `web/catalog.mjs`, separado do manifesto de distribuição durante a revisão. As capas são ilustrativas e vêm dos repositórios públicos dos respectivos mods; o desenho do caminhão no destaque é SVG. A tipografia usa Google Fonts com fontes locais como fallback.
+Abra `http://localhost:8765`. O catálogo visual está em `web/catalog.mjs`, separado do manifesto de distribuição durante a revisão. As capas são ilustrativas; Carreta Guerra usa a arte Guerra BR já aprovada para Steam e os demais cards usam as capas dos repositórios públicos; o desenho do caminhão no destaque é SVG. A tipografia usa Google Fonts com fontes locais como fallback.
 
 ```sh
 node --test tests/web.test.mjs
