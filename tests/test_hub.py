@@ -17,7 +17,7 @@ class CatalogTests(unittest.TestCase):
     def test_real_releases_and_channels(self):
         catalog = hub.build(self.plugins, self.fetch)
         self.assertEqual(catalog['plugins'][0]['stable']['version'], '0.3.2')
-        self.assertIsNone(catalog['plugins'][0]['beta'])
+        self.assertEqual(catalog['plugins'][0]['beta']['version'], '0.3.2-beta')
         self.assertEqual(catalog['plugins'][1]['stable']['version'], '0.1.6')
         self.assertNotIn('ats', catalog['plugins'][2]['compatibility'])
 

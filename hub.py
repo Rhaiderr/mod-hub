@@ -64,7 +64,7 @@ def build(plugins, fetch):
     result = []
     for plugin in plugins:
         repo = plugin['repository']
-        if repo not in {'Rhaiderr/mod-hub', 'Rhaiderr/ets2-truck-dirt', 'Rhaiderr/ets2-brbrasil-climate'}:
+        if repo not in {'Rhaiderr/ets2-tire-wear', 'Rhaiderr/ets2-truck-dirt', 'Rhaiderr/ets2-brbrasil-climate'}:
             raise ValueError('Repository not in public allowlist')
         releases = fetch(repo)
         channels = {'stable': None, 'beta': None}

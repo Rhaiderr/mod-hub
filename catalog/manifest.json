@@ -6,7 +6,7 @@
       "name": "Tire Wear",
       "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
       "category": "realismo",
-      "repository": "Rhaiderr/mod-hub",
+      "repository": "Rhaiderr/ets2-tire-wear",
       "asset": "ets2-tire-wear.zip",
       "compatibility": {
         "ets2": [
@@ -24,12 +24,18 @@
       "installation": "Com o jogo fechado, copiar DLL e INI para bin/win_x64/plugins; preservar o INI existente.",
       "stable": {
         "version": "0.3.2",
-        "published_at": "2026-11-18T16:30:44Z",
-        "download_url": "https://github.com/Rhaiderr/mod-hub/releases/download/v0.3.2/ets2-tire-wear.zip",
+        "published_at": "2026-11-18T16:38:35Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2/ets2-tire-wear.zip",
         "sha256": "aec8c4b6999a42b4f0bd415c881d63ed41eb7d37f258ae19edd05a663752d2a0",
-        "release_url": "https://github.com/Rhaiderr/mod-hub/releases/tag/v0.3.2"
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2"
       },
-      "beta": null
+      "beta": {
+        "version": "0.3.2-beta",
+        "published_at": "2026-11-18T16:38:54Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2-beta/ets2-tire-wear.zip",
+        "sha256": "de0e867a9188007dbbc9efa1f553f8d024750df6fb7f6e790caff431af9b816d",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2-beta"
+      }
     },
     {
       "id": "ets2-truck-dirt",

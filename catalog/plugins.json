@@ -4,7 +4,7 @@
     "name": "Tire Wear",
     "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
     "category": "realismo",
-    "repository": "Rhaiderr/mod-hub",
+    "repository": "Rhaiderr/ets2-tire-wear",
     "asset": "ets2-tire-wear.zip",
     "compatibility": {
       "ets2": [
