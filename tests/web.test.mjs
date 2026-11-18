@@ -24,17 +24,16 @@ test('public site uses local artwork and accessible status', () => {
   assert.match(html, /aria-live="polite"/);
 });
 
-test('Carreta Guerra is ETS2-only and previews Steam Workshop without a live link', () => {
+test('Carreta Guerra is ETS2-only and links to its Steam Workshop item', () => {
   const [guerra] = filterMods(mods, {category:'carretas'});
   assert.equal(guerra.id, 'carreta-guerra');
   assert.deepEqual(guerra.games, ['ets2']);
   assert.equal(guerra.distribution, 'steam');
   assert.equal(filterMods(mods, {game:'ats', category:'carretas'}).length, 0);
   assert.equal(filterMods(mods, {query:'guerra'})[0], guerra);
-  for (const mod of mods) {
-    assert.equal(mod.url, undefined);
-    assert.equal(mod.workshopUrl, undefined);
-  }
+  assert.equal(guerra.workshopUrl, 'https://steamcommunity.com/sharedfiles/filedetails/?id=3841679426');
+  assert.equal(guerra.downloadUrl, undefined);
+  assert.ok(mods.filter(mod => mod !== guerra).every(mod => !mod.workshopUrl));
 });
 
 

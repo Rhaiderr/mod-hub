@@ -35,7 +35,7 @@ export const englishPage = [
   ['.steps li:nth-child(2) h3', 'Check before you set off'],
   ['.steps li:nth-child(2) p', 'Check the version and instructions. Each mod has its own installation steps.'],
   ['.steps li:nth-child(3) h3', 'Get back on the road'],
-  ['.steps li:nth-child(3) p', 'Download Tire Wear, Truck Dirt and Clima Real from the catalog. The Steam link for Carreta Guerra will be available soon.'],
+  ['.steps li:nth-child(3) p', 'Download Tire Wear, Truck Dirt and Clima Real from the catalog. Subscribe to Carreta Guerra on Steam Workshop.'],
   ['.support .eyebrow', 'SUPPORT DEVELOPMENT'],
   ['.support h2', 'Taking these mods on the road?'],
   ['.support p:last-child', 'A coffee helps me keep the mods updated. Thanks for your support!'],
@@ -63,7 +63,7 @@ export const ui = {
   'pt-BR': {
     before: 'Antes de pegar a estrada', install: 'Como instalar', repository: 'Ver README no GitHub ↗',
     note: 'Confira os requisitos antes de instalar. A imagem é ilustrativa.',
-    steam: 'Steam em breve', download: 'Download ↓', downloadDemo: 'Download demonstrativo ↗', free: 'GRATUITO', details: 'Ver detalhes →',
+    steam: 'Steam em breve', workshop: 'Steam Workshop ↗', download: 'Download ↓', downloadDemo: 'Download demonstrativo ↗', free: 'GRATUITO', details: 'Ver detalhes →',
     detailsLabel: name => `Ver detalhes de ${name}`,
     downloadLabel: name => `Download demonstrativo de ${name}`,
     steamLabel: name => `Disponibilidade de ${name} na Steam Workshop`,
@@ -76,7 +76,7 @@ export const ui = {
   en: {
     before: 'Before you hit the road', install: 'How to install', repository: 'View README on GitHub ↗',
     note: 'Check the requirements before installing. The image is illustrative.',
-    steam: 'Steam coming soon', download: 'Download ↓', downloadDemo: 'Demo download ↗', free: 'FREE', details: 'View details →',
+    steam: 'Steam coming soon', workshop: 'Steam Workshop ↗', download: 'Download ↓', downloadDemo: 'Demo download ↗', free: 'FREE', details: 'View details →',
     detailsLabel: name => `View details for ${name}`,
     downloadLabel: name => `Demo download for ${name}`,
     steamLabel: name => `Availability of ${name} on Steam Workshop`,
@@ -115,6 +115,6 @@ export const englishMods = {
     description: 'The weight and presence of Brazilian roads. Four Guerra combinations: 4-axle, Vanderléia, bitrem and rodotrem.',
     compatibility: 'ETS2 · tested on 1.62',
     requirements: ['Euro Truck Simulator 2 1.62.', 'No DLC or other trailer mod required.', 'No ATS support; multiplayer is untested.'],
-    installation: 'The Steam Workshop link will be available soon. Once published, subscribe to the item and activate Guerra BR in the ETS2 Mod Manager.'
+    installation: 'Subscribe to the item on Steam Workshop and activate Guerra BR in the ETS2 Mod Manager.'
   }
 };

@@ -1,6 +1,6 @@
 (async () => {
-  const { mods, filterMods } = await import('./catalog.mjs?v=20261118-4');
-  const { detectLanguage, englishPage, englishAttributes, englishMods, ui } = await import('./i18n.mjs?v=20261118-5');
+  const { mods, filterMods } = await import('./catalog.mjs?v=20261118-6');
+  const { detectLanguage, englishPage, englishAttributes, englishMods, ui } = await import('./i18n.mjs?v=20261118-6');
   let savedLanguage;
   try { savedLanguage = localStorage.getItem('mod-hub-language'); } catch { /* Storage can be unavailable in private browsing. */ }
   let language = detectLanguage(savedLanguage, navigator.languages?.length ? navigator.languages : [navigator.language]);
@@ -45,10 +45,11 @@
     const list = element('ul');
     mod.requirements.forEach(requirement => list.append(element('li', '', requirement)));
     content.append(list, element('h3', '', text().install), element('p', '', mod.installation), element('p', 'dialog-note', text().note));
-    const button = mod.downloadUrl
-      ? element('a', 'button primary', text().download)
+    const url = mod.workshopUrl ?? mod.downloadUrl;
+    const button = url
+      ? element('a', 'button primary', mod.workshopUrl ? text().workshop : text().download)
       : element('button', 'button primary', mod.distribution === 'steam' ? text().steam : text().downloadDemo);
-    if (mod.downloadUrl) button.href = mod.downloadUrl;
+    if (url) button.href = url;
     else button.addEventListener('click', () => { details.close(); showDemo(text().action(mod)); });
     content.append(button);
     if (mod.repositoryUrl) {
@@ -82,9 +83,11 @@
       const detail = element('button', 'detail-button', text().details);
       detail.setAttribute('aria-label', text().detailsLabel(mod.name));
       detail.addEventListener('click', () => showDetails(mod));
-      const download = element(mod.downloadUrl ? 'a' : 'button', 'download-button', mod.distribution === 'steam' ? text().steam : text().download);
-      if (mod.downloadUrl) {
-        download.href = mod.downloadUrl;
+      const url = mod.workshopUrl ?? mod.downloadUrl;
+      const label = mod.workshopUrl ? text().workshop : mod.distribution === 'steam' ? text().steam : text().download;
+      const download = element(url ? 'a' : 'button', 'download-button', label);
+      if (url) {
+        download.href = url;
         download.setAttribute('aria-label', text().action(mod));
       } else {
         download.setAttribute('aria-label', mod.distribution === 'steam' ? text().steamLabel(mod.name) : text().downloadLabel(mod.name));
