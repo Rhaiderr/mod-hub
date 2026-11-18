@@ -18,9 +18,9 @@
 
 /* The catalog is the landing page. Keep cover art and actions together. */
 .header { height: 76px; }
-.catalog { padding-top: clamp(38px, 6vw, 84px); }
+.catalog { padding-top: clamp(28px, 4vw, 48px); }
 .section-heading { align-items: end; margin-bottom: 32px; }
-.section-heading h2 { font-size: clamp(50px, 7.8vw, 108px); line-height: .96; letter-spacing: -.025em; }
+.section-heading h2 { font-size: clamp(38px, 5vw, 64px); line-height: .96; letter-spacing: -.025em; }
 .section-heading .eyebrow { color: var(--muted); letter-spacing: .12em; }
 .catalog-toolbar { background: #222529; border: 1px solid #383c42; border-radius: 12px; padding: 12px; }
 .filter-row { margin-block: 16px 24px; }
@@ -44,4 +44,30 @@
 .catalog-foot a:hover { text-decoration: underline; }
 @media (max-width: 420px) {
   .header { gap: 6px; }
+}
+
+.wrap { max-width: 1120px; }
+.card-image { aspect-ratio: 2 / 1; }
+.card-body { padding: 20px; }
+.card-category, .card-version, .card-compat, .card-games span { font-size: 11px; }
+.card h3 { font-size: 30px; }
+.card-description { margin-block: 12px 16px; }
+.detail-button, .download-button, .github-button { font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; }
+.public-card-actions .detail-button { flex-basis: auto; margin-right: auto; }
+.download-button { background: var(--yellow); color: #171a14; border-color: var(--yellow); }
+.public-card-actions .download-button { background: var(--yellow); }
+.game-tabs button, .categories button, .search input, .sort-label, .sort-label select { font-size: 13px; }
+.steps p, .support p:last-child, .how-intro>p:last-child { font-size: 14px; }
+.steps h3 { font-size: 15px; }
+.coffee-link { flex-shrink: 0; }
+@media (max-width: 720px) {
+  .header { height: auto; min-height: 76px; flex-wrap: wrap; padding-block: 12px; gap: 12px; }
+  .header nav { order: 4; width: 100%; margin: 0; }
+  .header nav a:last-child { display: inline; }
+  .nav-active:after { bottom: -5px; }
+  .language-switch { margin-left: auto; }
+  .header .coffee-link img { width: 112px; }
+  .card-image { aspect-ratio: 16 / 9; }
+  .card-bottom { gap: 8px; flex-wrap: wrap; }
+  .section-heading .eyebrow { font-size: 9px; }
 }

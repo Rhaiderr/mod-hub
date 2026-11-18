@@ -1,6 +1,6 @@
 (async () => {
-  const { mods, filterMods } = await import('./catalog.mjs');
-  const { detectLanguage, englishPage, englishAttributes, englishMods, ui } = await import('./i18n.mjs');
+  const { mods, filterMods } = await import('./catalog.mjs?v=20261118-2');
+  const { detectLanguage, englishPage, englishAttributes, englishMods, ui } = await import('./i18n.mjs?v=20261118-2');
   let savedLanguage;
   try { savedLanguage = localStorage.getItem('mod-hub-language'); } catch { /* Storage can be unavailable in private browsing. */ }
   let language = detectLanguage(savedLanguage, navigator.languages?.length ? navigator.languages : [navigator.language]);
