@@ -35,15 +35,14 @@ export const englishPage = [
   ['.steps li:nth-child(2) h3', 'Check before you set off'],
   ['.steps li:nth-child(2) p', 'Check the version and instructions. Each mod has its own installation steps.'],
   ['.steps li:nth-child(3) h3', 'Get back on the road'],
-  ['.steps li:nth-child(3) p', 'Download Tire Wear, Truck Dirt and Clima Real from the catalog. The Steam Workshop button is a demo.'],
+  ['.steps li:nth-child(3) p', 'Download Tire Wear, Truck Dirt and Clima Real from the catalog. The Steam link for Carreta Guerra will be available soon.'],
   ['.support .eyebrow', 'SUPPORT DEVELOPMENT'],
   ['.support h2', 'Taking these mods on the road?'],
   ['.support p:last-child', 'A coffee helps me keep the mods updated. Thanks for your support!'],
   ['.footer p', 'An independent project. Not affiliated with SCS Software.'],
-  ['.preview-badge', 'VISUAL PREVIEW · v0.1'],
-  ['#demo .eyebrow', 'VISUAL PREVIEW'],
-  ['#demo-title', 'A quick pit stop.'],
-  ['#demo > p:last-of-type', 'We are reviewing the look of Mod Hub. Destinations will be checked before the final version.'],
+  ['#demo .eyebrow', 'AVAILABILITY'],
+  ['#demo-title', 'Link available soon.'],
+  ['#demo > p:last-of-type', 'You can already check the details and requirements for this mod in the catalog.'],
   ['#demo-ok', 'Got it <span aria-hidden="true">✓</span>']
 ];
 
@@ -63,26 +62,26 @@ export const englishAttributes = [
 export const ui = {
   'pt-BR': {
     before: 'Antes de pegar a estrada', install: 'Como instalar', repository: 'Ver README no GitHub ↗',
-    note: 'Prévia para validação visual. Versões e compatibilidade são referências do catálogo e ainda serão revisadas. A imagem é ilustrativa.',
-    steam: 'Ver na Steam ↗', download: 'Download ↓', downloadDemo: 'Download demonstrativo ↗', free: 'GRATUITO', details: 'Ver detalhes →',
+    note: 'Confira os requisitos antes de instalar. A imagem é ilustrativa.',
+    steam: 'Steam em breve', download: 'Download ↓', downloadDemo: 'Download demonstrativo ↗', free: 'GRATUITO', details: 'Ver detalhes →',
     detailsLabel: name => `Ver detalhes de ${name}`,
     downloadLabel: name => `Download demonstrativo de ${name}`,
-    steamLabel: name => `Ver ${name} na Steam Workshop (demonstrativo)`,
+    steamLabel: name => `Disponibilidade de ${name} na Steam Workshop`,
     action: mod => mod.distribution === 'steam' ? `Abrir ${mod.name} na Steam Workshop` : `Baixar ${mod.name}`,
-    demo: action => `${action}: esta ação ainda é demonstrativa e não inicia nenhum download ou pagamento.`,
+    demo: action => `${action}: o link ainda não foi disponibilizado.`,
     results: count => `${count} ${count === 1 ? 'mod encontrado' : 'mods encontrados'}.`,
     support: 'Apoiar o projeto', coffee: 'Apoiar o desenvolvimento',
     error: 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.'
   },
   en: {
     before: 'Before you hit the road', install: 'How to install', repository: 'View README on GitHub ↗',
-    note: 'Visual preview. Versions and compatibility are catalog references and still need review. The image is illustrative.',
-    steam: 'View on Steam ↗', download: 'Download ↓', downloadDemo: 'Demo download ↗', free: 'FREE', details: 'View details →',
+    note: 'Check the requirements before installing. The image is illustrative.',
+    steam: 'Steam coming soon', download: 'Download ↓', downloadDemo: 'Demo download ↗', free: 'FREE', details: 'View details →',
     detailsLabel: name => `View details for ${name}`,
     downloadLabel: name => `Demo download for ${name}`,
-    steamLabel: name => `View ${name} on Steam Workshop (demo)`,
+    steamLabel: name => `Availability of ${name} on Steam Workshop`,
     action: mod => mod.distribution === 'steam' ? `Open ${mod.name} on Steam Workshop` : `Download ${mod.name}`,
-    demo: action => `${action}: this is a demonstration and does not start any download or payment.`,
+    demo: action => `${action}: the link is not available yet.`,
     results: count => `${count} ${count === 1 ? 'mod found' : 'mods found'}.`,
     support: 'Support the project', coffee: 'Support development',
     error: 'The catalog could not be loaded. Refresh the page to try again.'
@@ -116,6 +115,6 @@ export const englishMods = {
     description: 'The weight and presence of Brazilian roads. Four Guerra combinations: 4-axle, Vanderléia, bitrem and rodotrem.',
     compatibility: 'ETS2 · tested on 1.62',
     requirements: ['Euro Truck Simulator 2 1.62.', 'No DLC or other trailer mod required.', 'No ATS support; multiplayer is untested.'],
-    installation: 'In the final version, open the Steam Workshop item, subscribe and activate Guerra BR in the ETS2 Mod Manager. The Steam link is still under review in this preview.'
+    installation: 'The Steam Workshop link will be available soon. Once published, subscribe to the item and activate Guerra BR in the ETS2 Mod Manager.'
   }
 };

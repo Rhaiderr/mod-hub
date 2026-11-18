@@ -13,14 +13,14 @@ test('catalog filters combine game, category and normalized search', () => {
   assert.deepEqual(filterMods(mods, {sort:'name'}).map(mod => mod.name), ['Carreta Guerra','Clima Real','Tire Wear','Truck Dirt']);
   assert.equal(mods[0].id, 'tire-wear');
 });
-test('preview uses local artwork and accessible status', () => {
+test('public site uses local artwork and accessible status', () => {
   for (const mod of mods) assert.ok(existsSync(new URL('../web/'+mod.image, import.meta.url)));
   const html = readFileSync(new URL('../web/index.html', import.meta.url), 'utf8');
   const support = 'https://buymeacoffee.com/leonardoarouck';
   const external = Array.from(html.matchAll(/href="(https?:[^"]+)"/g), match => match[1]);
   assert.deepEqual(external.sort(), [support, support, 'https://github.com/Rhaiderr'].sort());
   for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${id}"`));
-  assert.match(html, /PRÉVIA VISUAL/);
+  assert.doesNotMatch(html, /PRÉVIA VISUAL/);
   assert.match(html, /aria-live="polite"/);
 });
 

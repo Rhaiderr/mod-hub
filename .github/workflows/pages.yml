@@ -1,4 +1,4 @@
-name: Publish visual preview
+name: Publish Mod Hub
 on:
   push:
     branches: [main]
