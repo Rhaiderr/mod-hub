@@ -91,6 +91,13 @@
         download.addEventListener('click', () => showDemo(text().action(mod)));
       }
       bottom.append(detail, download);
+      if (mod.repositoryUrl) {
+        bottom.classList.add('public-card-actions');
+        const repository = element('a', 'github-button', 'GitHub ↗');
+        repository.href = mod.repositoryUrl;
+        repository.setAttribute('aria-label', `${text().repository} — ${mod.name}`);
+        bottom.append(repository);
+      }
       body.append(bottom);
       card.append(visual, body);
       cards.append(card);

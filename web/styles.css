@@ -3,3 +3,15 @@
 
 .language-switch{margin-left:auto}.language-switch select{background:var(--bg);color:var(--white);border:1px solid #464b3e;border-radius:4px;padding:8px 5px;font-size:10px}.header nav{margin-left:auto}@media(max-width:720px){.header{gap:10px}.header-action{display:none}.language-switch{margin-left:0}.header nav{margin-left:auto}.language-switch select{font-size:10px}}
 @media(min-width:1200px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.card-title-row{flex-wrap:wrap;gap:7px}.card h3{font-size:26px}}@media(min-width:721px) and (max-width:1199px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.public-card-actions { flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
+.public-card-actions .detail-button { flex-basis: 100%; text-align: left; }
+.public-card-actions .download-button { background: #34472a; }
+.github-button {
+  border: 1px solid #60695b;
+  border-radius: 4px;
+  color: var(--white);
+  font-size: 11px;
+  padding: 7px 12px;
+}
+.github-button:hover { border-color: var(--white); }
