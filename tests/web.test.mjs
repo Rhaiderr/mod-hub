@@ -35,13 +35,17 @@ test('Carreta Guerra is ETS2-only and previews Steam Workshop without a live lin
 });
 
 
-test('Tire Wear is the only mod with a live download', () => {
-  const [tireWear] = mods.filter(mod => mod.downloadUrl);
+test('public mod downloads and README links match the stable manifest', () => {
+  const publicMods = mods.filter(mod => mod.downloadUrl);
   const manifest = JSON.parse(readFileSync(new URL('../catalog/manifest.json', import.meta.url), 'utf8'));
-  assert.deepEqual(mods.filter(mod => mod.downloadUrl).map(mod => mod.id), ['tire-wear']);
-  assert.equal(tireWear.beta, false);
-  assert.equal(tireWear.version, manifest.plugins[0].stable.version);
-  assert.equal(tireWear.downloadUrl, manifest.plugins[0].stable.download_url);
+  assert.deepEqual(publicMods.map(mod => mod.id), ['tire-wear', 'truck-dirt', 'clima-real']);
+  for (const mod of publicMods) {
+    const plugin = manifest.plugins.find(plugin => plugin.stable?.download_url === mod.downloadUrl);
+    assert.ok(plugin, mod.name);
+    assert.equal(mod.beta, false);
+    assert.equal(mod.version, plugin.stable.version);
+    assert.equal(mod.repositoryUrl, `https://github.com/${plugin.repository}`);
+  }
 });
 
 test('language detection respects preferred browser locale and saved choice', () => {

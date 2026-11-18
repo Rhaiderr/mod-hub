@@ -4,7 +4,7 @@
 
 Um catálogo independente de mods para Euro Truck Simulator 2 e American Truck Simulator. Tema escuro, busca, filtros por jogo/categoria e detalhes de cada mod, adaptados para telas pequenas.
 
-> O Tire Wear 0.3.2 tem download público pelo Mod Hub. Os botões de apoio e de download dos demais mods são demonstrativos.
+> Tire Wear, Truck Dirt e Clima Real têm downloads oficiais e links para os READMEs públicos. Os botões de apoio e da Steam Workshop são demonstrativos.
 
 ## Idiomas
 

@@ -51,6 +51,11 @@
     if (mod.downloadUrl) button.href = mod.downloadUrl;
     else button.addEventListener('click', () => { details.close(); showDemo(text().action(mod)); });
     content.append(button);
+    if (mod.repositoryUrl) {
+      const repository = element('a', 'button', text().repository);
+      repository.href = mod.repositoryUrl;
+      content.append(repository);
+    }
     openDialog(details);
   }
   function render() {

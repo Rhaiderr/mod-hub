@@ -46,7 +46,7 @@ export const englishPage = [
   ['.steps li:nth-child(2) h3', 'Check before you set off'],
   ['.steps li:nth-child(2) p', 'Check the version and instructions. Each mod has its own installation steps.'],
   ['.steps li:nth-child(3) h3', 'Get back on the road'],
-  ['.steps li:nth-child(3) p', 'Download Tire Wear from the catalog. The buttons for the other mods are demos.'],
+  ['.steps li:nth-child(3) p', 'Download Tire Wear, Truck Dirt and Clima Real from the catalog. The Steam Workshop button is a demo.'],
   ['.support .eyebrow', 'MADE IN OUR SPARE TIME. FOR HOURS OF PLAY.'],
   ['.support h2', 'Enjoying the journey?'],
   ['.support p:last-child', 'Your support helps keep these projects on the road.'],
@@ -75,7 +75,7 @@ export const englishAttributes = [
 
 export const ui = {
   'pt-BR': {
-    before: 'Antes de pegar a estrada', install: 'Como instalar',
+    before: 'Antes de pegar a estrada', install: 'Como instalar', repository: 'Ver README no GitHub ↗',
     note: 'Prévia para validação visual. Versões e compatibilidade são referências do catálogo e ainda serão revisadas. A imagem é ilustrativa.',
     steam: 'Ver na Steam ↗', download: 'Download ↓', downloadDemo: 'Download demonstrativo ↗', free: 'GRATUITO', details: 'Ver detalhes →',
     detailsLabel: name => `Ver detalhes de ${name}`,
@@ -88,7 +88,7 @@ export const ui = {
     error: 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.'
   },
   en: {
-    before: 'Before you hit the road', install: 'How to install',
+    before: 'Before you hit the road', install: 'How to install', repository: 'View README on GitHub ↗',
     note: 'Visual preview. Versions and compatibility are catalog references and still need review. The image is illustrative.',
     steam: 'View on Steam ↗', download: 'Download ↓', downloadDemo: 'Demo download ↗', free: 'FREE', details: 'View details →',
     detailsLabel: name => `View details for ${name}`,
