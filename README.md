@@ -4,7 +4,7 @@
 
 Um catálogo independente de mods para Euro Truck Simulator 2 e American Truck Simulator. Tema escuro, busca, filtros por jogo/categoria e detalhes de cada mod, adaptados para telas pequenas.
 
-> Tire Wear, Truck Dirt e Clima Real têm downloads oficiais e links para os READMEs públicos. Os botões de apoio e da Steam Workshop são demonstrativos.
+> Truck Dirt, Brake Fade, Tire Wear e Clima Real têm downloads oficiais e links para os READMEs públicos. Os botões de apoio e da Steam Workshop são demonstrativos.
 
 ## Idiomas
 
@@ -40,7 +40,7 @@ Sincronização reproduzível sem rede: `.venv/bin/python hub.py sync --fixtures
 
 `catalog/plugins.json` guarda metadados curados. `catalog/manifest.json` contém versões stable/beta, datas, URLs versionadas e SHA-256 declarados pelo GitHub, validado por `catalog/schema.json`. Os metadados de compatibilidade são referências documentadas, não uma afirmação de que versões futuras foram testadas.
 
-O gerador consulta apenas os três repositórios públicos incluídos, ignora drafts e exige pacote com SHA-256. Uma falha preserva o manifesto anterior. Pré-lançamentos SemVer permanecem no canal beta mesmo quando a flag no GitHub discorda. Notas completas ficam nos Releases originais.
+O gerador consulta apenas os repositórios públicos incluídos, ignora drafts e exige pacote com SHA-256. Uma falha preserva o manifesto anterior. Pré-lançamentos SemVer permanecem no canal beta mesmo quando a flag no GitHub discorda. Notas completas ficam nos Releases originais.
 
 Verificação de um pacote baixado manualmente:
 

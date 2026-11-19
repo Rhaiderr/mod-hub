@@ -89,6 +89,13 @@ export const ui = {
 };
 
 export const englishMods = {
+  'brake-fade': {
+    label: 'Realism & physics', alt: 'Illustrative artwork of a truck with smoking brakes on a mountain descent',
+    description: 'Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD.',
+    compatibility: 'ETS2 1.62.3.3 · experimental ATS 1.62.2.2',
+    requirements: ['Windows x64, DirectX 11 and single player.', 'ETS2 1.62.3.3 tested in-game.', 'Experimental ATS 1.62.2.2 profile. In-game validation and native service-brake fade are pending.'],
+    installation: 'Close the game, extract the entire ZIP and run install.bat. See the README for custom Steam libraries and the experimental ATS profile.'
+  },
   'tire-wear': {
     label: 'Realism & physics', alt: 'Illustrative artwork of truck tires, from new to worn',
     description: 'Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel.',

@@ -36,6 +36,7 @@
             "enum": [
               "Rhaiderr/ets2-tire-wear",
               "Rhaiderr/ets2-truck-dirt",
+              "Rhaiderr/ets2-ats-brake-fade",
               "Rhaiderr/ets2-brbrasil-climate"
             ]
           },

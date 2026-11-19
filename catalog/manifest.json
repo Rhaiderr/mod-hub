@@ -2,42 +2,6 @@
   "schema_version": 1,
   "plugins": [
     {
-      "id": "ets2-tire-wear",
-      "name": "Tire Wear",
-      "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
-      "category": "realismo",
-      "repository": "Rhaiderr/ets2-tire-wear",
-      "asset": "ets2-tire-wear.zip",
-      "compatibility": {
-        "ets2": [
-          "1.61"
-        ],
-        "ats": [
-          "1.61"
-        ]
-      },
-      "requirements": [
-        "Windows 10/11 x64",
-        "DirectX 11",
-        "Single player"
-      ],
-      "installation": "Com o jogo fechado, copiar DLL e INI para bin/win_x64/plugins; preservar o INI existente.",
-      "stable": {
-        "version": "0.3.2",
-        "published_at": "2026-11-18T16:38:35Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2/ets2-tire-wear.zip",
-        "sha256": "aec8c4b6999a42b4f0bd415c881d63ed41eb7d37f258ae19edd05a663752d2a0",
-        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2"
-      },
-      "beta": {
-        "version": "0.3.2-beta",
-        "published_at": "2026-11-18T16:38:54Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2-beta/ets2-tire-wear.zip",
-        "sha256": "de0e867a9188007dbbc9efa1f553f8d024750df6fb7f6e790caff431af9b816d",
-        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2-beta"
-      }
-    },
-    {
       "id": "ets2-truck-dirt",
       "name": "Truck Dirt",
       "description": "Sujeira dinâmica e lavagem de caminhões, carretas e cargas.",
@@ -71,6 +35,69 @@
         "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.0-beta/ets2-truck-dirt.zip",
         "sha256": "b22f98039364815c5c97a80eaac9a12c272f2c19f1a36c39dc42d05e72fa0b25",
         "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.0-beta"
+      }
+    },
+    {
+      "id": "ets2-ats-brake-fade",
+      "name": "Brake Fade",
+      "description": "Aquecimento, perda de eficiência e fumaça nos freios. ETS2 validado no jogo, ATS experimental.",
+      "category": "realismo",
+      "repository": "Rhaiderr/ets2-ats-brake-fade",
+      "asset": "ets2-ats-brake-fade.zip",
+      "compatibility": {
+        "ets2": [
+          "1.62.3.3"
+        ]
+      },
+      "requirements": [
+        "Windows x64",
+        "DirectX 11",
+        "Single player"
+      ],
+      "installation": "Com o jogo fechado, extraia o ZIP completo e execute install.bat.",
+      "stable": null,
+      "beta": {
+        "version": "0.4.0-rc6",
+        "published_at": "2026-11-19T00:49:30Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.0-rc6/ets2-ats-brake-fade.zip",
+        "sha256": "79801ba4c894debccd8f30dcb8132a327f6e708c9ab0f6fa8b6a84ad060e9467",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.0-rc6"
+      }
+    },
+    {
+      "id": "ets2-tire-wear",
+      "name": "Tire Wear",
+      "description": "Desgaste visual de pneus e estouros no ETS2 e ATS.",
+      "category": "realismo",
+      "repository": "Rhaiderr/ets2-tire-wear",
+      "asset": "ets2-tire-wear.zip",
+      "compatibility": {
+        "ets2": [
+          "1.61"
+        ],
+        "ats": [
+          "1.61"
+        ]
+      },
+      "requirements": [
+        "Windows 10/11 x64",
+        "DirectX 11",
+        "Single player"
+      ],
+      "installation": "Com o jogo fechado, copiar DLL e INI para bin/win_x64/plugins; preservar o INI existente.",
+      "stable": {
+        "version": "0.3.2",
+        "published_at": "2026-11-18T16:38:35Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2/ets2-tire-wear.zip",
+        "sha256": "aec8c4b6999a42b4f0bd415c881d63ed41eb7d37f258ae19edd05a663752d2a0",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2"
+      },
+      "beta": {
+        "version": "0.3.2-beta",
+        "published_at": "2026-11-18T16:38:54Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2-beta/ets2-tire-wear.zip",
+        "sha256": "de0e867a9188007dbbc9efa1f553f8d024750df6fb7f6e790caff431af9b816d",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2-beta"
       }
     },
     {

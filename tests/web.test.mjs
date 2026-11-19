@@ -5,13 +5,13 @@ import { mods, filterMods } from '../web/catalog.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 
 test('catalog filters combine game, category and normalized search', () => {
-  assert.equal(filterMods(mods).length, 4);
-  assert.equal(filterMods(mods, {game:'ats'}).length, 2);
+  assert.equal(filterMods(mods).length, 5);
+  assert.equal(filterMods(mods, {game:'ats'}).length, 3);
   assert.deepEqual(filterMods(mods, {game:'ats', category:'clima'}), []);
   assert.equal(filterMods(mods, {query:'  BRASILEIRO  '})[0].id, 'clima-real');
   assert.equal(filterMods(mods, {query:'quilometro'})[0].id, 'tire-wear');
-  assert.deepEqual(filterMods(mods, {sort:'name'}).map(mod => mod.name), ['Carreta Guerra','Clima Real','Tire Wear','Truck Dirt']);
-  assert.equal(mods[0].id, 'tire-wear');
+  assert.deepEqual(filterMods(mods, {sort:'name'}).map(mod => mod.name), ['Brake Fade','Carreta Guerra','Clima Real','Tire Wear','Truck Dirt']);
+  assert.deepEqual(mods.map(mod => mod.id), ['truck-dirt', 'brake-fade', 'tire-wear', 'carreta-guerra', 'clima-real']);
 });
 test('public site uses local artwork and accessible status', () => {
   for (const mod of mods) assert.ok(existsSync(new URL('../web/'+mod.image, import.meta.url)));
@@ -37,15 +37,15 @@ test('Carreta Guerra is ETS2-only and links to its Steam Workshop item', () => {
 });
 
 
-test('public mod downloads and README links match the stable manifest', () => {
+test('public mod downloads and README links match the manifest', () => {
   const publicMods = mods.filter(mod => mod.downloadUrl);
   const manifest = JSON.parse(readFileSync(new URL('../catalog/manifest.json', import.meta.url), 'utf8'));
-  assert.deepEqual(publicMods.map(mod => mod.id), ['tire-wear', 'truck-dirt', 'clima-real']);
+  assert.deepEqual(publicMods.map(mod => mod.id), ['truck-dirt', 'brake-fade', 'tire-wear', 'clima-real']);
   for (const mod of publicMods) {
-    const plugin = manifest.plugins.find(plugin => plugin.stable?.download_url === mod.downloadUrl);
+    const channel = mod.beta ? 'beta' : 'stable';
+    const plugin = manifest.plugins.find(plugin => plugin[channel]?.download_url === mod.downloadUrl);
     assert.ok(plugin, mod.name);
-    assert.equal(mod.beta, false);
-    assert.equal(mod.version, plugin.stable.version);
+    assert.equal(mod.version, plugin[channel].version);
     assert.equal(mod.repositoryUrl, `https://github.com/${plugin.repository}`);
   }
 });

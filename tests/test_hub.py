@@ -16,10 +16,13 @@ class CatalogTests(unittest.TestCase):
 
     def test_real_releases_and_channels(self):
         catalog = hub.build(self.plugins, self.fetch)
-        self.assertEqual(catalog['plugins'][0]['stable']['version'], '0.3.2')
-        self.assertEqual(catalog['plugins'][0]['beta']['version'], '0.3.2-beta')
-        self.assertEqual(catalog['plugins'][1]['stable']['version'], '0.1.6')
-        self.assertNotIn('ats', catalog['plugins'][2]['compatibility'])
+        plugins = {plugin['id']: plugin for plugin in catalog['plugins']}
+        self.assertEqual(plugins['ets2-tire-wear']['stable']['version'], '0.3.2')
+        self.assertEqual(plugins['ets2-tire-wear']['beta']['version'], '0.3.2-beta')
+        self.assertEqual(plugins['ets2-truck-dirt']['stable']['version'], '0.1.6')
+        self.assertIsNone(plugins['ets2-ats-brake-fade']['stable'])
+        self.assertEqual(plugins['ets2-ats-brake-fade']['beta']['version'], '0.4.0-rc6')
+        self.assertNotIn('ats', plugins['ets2-brbrasil-climate']['compatibility'])
 
     def test_semver_order_and_invalid_versions(self):
         versions = ['1.0.0-alpha', '1.0.0-alpha.2', '1.0.0-alpha.10', '1.0.0-beta', '1.0.0-rc.1', '1.0.0', '1.0.10', '1.1.0']
@@ -44,7 +47,8 @@ class CatalogTests(unittest.TestCase):
                 new['assets'][0]['browser_download_url'] = new['assets'][0]['browser_download_url'].replace('v0.1.6', 'v0.1.10')
                 releases.append(new)
             return releases
-        self.assertEqual(hub.build(self.plugins, updated)['plugins'][1]['stable']['version'], '0.1.10')
+        truck_dirt = next(plugin for plugin in hub.build(self.plugins, updated)['plugins'] if plugin['id'] == 'ets2-truck-dirt')
+        self.assertEqual(truck_dirt['stable']['version'], '0.1.10')
 
     def test_invalid_catalog_and_duplicate_ids(self):
         catalog = hub.build(self.plugins, self.fetch)
