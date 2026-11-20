@@ -110,11 +110,11 @@
         }
       },
       "stable": {
-        "version": "0.4.0",
-        "published_at": "2026-11-20T03:09:54Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.0/ets2-ats-brake-fade.zip",
-        "sha256": "64bb4751dd1b195fc368e08bb4cbc85aff49d9491c81bf908781328163fb7375",
-        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.0"
+        "version": "0.4.1",
+        "published_at": "2026-11-20T12:48:45Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.1/ets2-ats-brake-fade.zip",
+        "sha256": "069c8b58bdf59b667710a1cff09f3c8964af121b69b8dfb20f1fcb1f0ef72351",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.1"
       },
       "beta": {
         "version": "0.4.0-rc6",
