@@ -50,11 +50,11 @@
         }
       },
       "stable": {
-        "version": "0.1.9",
-        "published_at": "2026-11-20T14:31:14Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.9/ets2-truck-dirt.zip",
-        "sha256": "96defc0c4b87483e826530368d71512bd5d229ebb20fc7c28e613e12c4c3add3",
-        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.9"
+        "version": "0.1.10",
+        "published_at": "2026-11-20T15:12:57Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.10/ets2-truck-dirt.zip",
+        "sha256": "cf5e0b83592e15a88e21db3068113a98bd1ced92904d0463d27bbb3da95495a8",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.10"
       },
       "beta": {
         "version": "0.1.0-beta",
