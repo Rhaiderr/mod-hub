@@ -27,7 +27,7 @@
         "pt-BR": {
           "label": "Visual & imersão",
           "alt": "Arte ilustrativa de um caminhão com poeira e lama na estrada",
-          "description": "Poeira, lama e as histórias do caminho. Seu caminhão fica sujo de verdade, de acordo com a estrada e o clima.",
+          "description": "Poeira, lama e as histórias do caminho. Seu caminhão fica sujo de verdade, de acordo com a estrada e o clima. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
           "compatibility": "ETS2 / ATS · versão testada 1.62",
           "requirements": [
             "Windows 10/11 de 64 bits e DirectX 11.",
@@ -39,7 +39,7 @@
         "en": {
           "label": "Visuals & immersion",
           "alt": "Illustrative artwork of a truck with road dust and mud",
-          "description": "Dust, mud and stories from the road. Your truck gets dirty as you drive, following the road surface and weather.",
+          "description": "Dust, mud and stories from the road. Your truck gets dirty as you drive, following the road surface and weather. In-game, the default shortcut for the plugins menu is Shift+F12.",
           "compatibility": "ETS2 / ATS · tested on 1.62",
           "requirements": [
             "Windows 10/11 64-bit and DirectX 11.",
@@ -50,11 +50,11 @@
         }
       },
       "stable": {
-        "version": "0.1.8",
-        "published_at": "2026-11-20T03:10:00Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.8/ets2-truck-dirt.zip",
-        "sha256": "987ef07cc0514337fb50e8615b3008f6683c950bf68d7428bfb729841525e7cc",
-        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.8"
+        "version": "0.1.9",
+        "published_at": "2026-11-20T14:31:14Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.9/ets2-truck-dirt.zip",
+        "sha256": "96defc0c4b87483e826530368d71512bd5d229ebb20fc7c28e613e12c4c3add3",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.9"
       },
       "beta": {
         "version": "0.1.0-beta",
@@ -87,7 +87,7 @@
         "pt-BR": {
           "label": "Realismo & física",
           "alt": "Arte ilustrativa de um caminhão com fumaça nos freios em uma descida de serra",
-          "description": "Freios aquecem nas descidas, perdem força e recuperam eficiência ao esfriar. Acompanhe caminhão e carretas no HUD.",
+          "description": "Freios aquecem nas descidas, perdem força e recuperam eficiência ao esfriar. Acompanhe caminhão e carretas no HUD. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
           "compatibility": "ETS2 1.62.3.3 · ATS 1.62.2.2 experimental",
           "requirements": [
             "Windows x64, DirectX 11 e modo individual.",
@@ -99,7 +99,7 @@
         "en": {
           "label": "Realism & physics",
           "alt": "Illustrative artwork of a truck with smoking brakes on a mountain descent",
-          "description": "Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD.",
+          "description": "Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD. In-game, the default shortcut for the plugins menu is Shift+F12.",
           "compatibility": "ETS2 1.62.3.3 · experimental ATS 1.62.2.2",
           "requirements": [
             "Windows x64, DirectX 11 and single player.",
@@ -110,11 +110,11 @@
         }
       },
       "stable": {
-        "version": "0.4.1",
-        "published_at": "2026-11-20T12:48:45Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.1/ets2-ats-brake-fade.zip",
-        "sha256": "069c8b58bdf59b667710a1cff09f3c8964af121b69b8dfb20f1fcb1f0ef72351",
-        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.1"
+        "version": "0.4.2",
+        "published_at": "2026-11-20T14:31:07Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.2/ets2-ats-brake-fade.zip",
+        "sha256": "9779dee14d72588d565bb6d7249aeca373a51a99af77dbf17584e618c9c00d51",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.2"
       },
       "beta": {
         "version": "0.4.0-rc6",
@@ -151,7 +151,7 @@
         "pt-BR": {
           "label": "Realismo & física",
           "alt": "Arte ilustrativa de pneus de caminhão, do novo ao desgastado",
-          "description": "Cada quilômetro deixa sua marca. Desgaste visual dos pneus e estouros que você sente no volante.",
+          "description": "Cada quilômetro deixa sua marca. Desgaste visual dos pneus e estouros que você sente no volante. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
           "compatibility": "ETS2 1.61–1.62 · ATS 1.61",
           "requirements": [
             "Windows 10/11 de 64 bits e DirectX 11.",
@@ -163,7 +163,7 @@
         "en": {
           "label": "Realism & physics",
           "alt": "Illustrative artwork of truck tires, from new to worn",
-          "description": "Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel.",
+          "description": "Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel. In-game, the default shortcut for the plugins menu is Shift+F12.",
           "compatibility": "ETS2 1.61–1.62 · ATS 1.61 tested",
           "requirements": [
             "Windows 10/11 64-bit and DirectX 11.",
@@ -174,11 +174,11 @@
         }
       },
       "stable": {
-        "version": "0.3.3",
-        "published_at": "2026-11-20T03:09:57Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.3/ets2-tire-wear.zip",
-        "sha256": "12462efa1fbfd6a3de51c91499055468381c0760b294465d7d3882a96d314ccc",
-        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.3"
+        "version": "0.3.4",
+        "published_at": "2026-11-20T14:31:11Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.4/ets2-tire-wear.zip",
+        "sha256": "8501ecd696b2a637d3932af179c8cd152d180c53de86ff03e1aff44e379627ac",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.4"
       },
       "beta": {
         "version": "0.3.2-beta",

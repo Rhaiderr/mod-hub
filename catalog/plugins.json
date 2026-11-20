@@ -25,7 +25,7 @@
       "pt-BR": {
         "label": "Visual & imersão",
         "alt": "Arte ilustrativa de um caminhão com poeira e lama na estrada",
-        "description": "Poeira, lama e as histórias do caminho. Seu caminhão fica sujo de verdade, de acordo com a estrada e o clima.",
+        "description": "Poeira, lama e as histórias do caminho. Seu caminhão fica sujo de verdade, de acordo com a estrada e o clima. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
         "compatibility": "ETS2 / ATS · versão testada 1.62",
         "requirements": [
           "Windows 10/11 de 64 bits e DirectX 11.",
@@ -37,7 +37,7 @@
       "en": {
         "label": "Visuals & immersion",
         "alt": "Illustrative artwork of a truck with road dust and mud",
-        "description": "Dust, mud and stories from the road. Your truck gets dirty as you drive, following the road surface and weather.",
+        "description": "Dust, mud and stories from the road. Your truck gets dirty as you drive, following the road surface and weather. In-game, the default shortcut for the plugins menu is Shift+F12.",
         "compatibility": "ETS2 / ATS · tested on 1.62",
         "requirements": [
           "Windows 10/11 64-bit and DirectX 11.",
@@ -71,7 +71,7 @@
       "pt-BR": {
         "label": "Realismo & física",
         "alt": "Arte ilustrativa de um caminhão com fumaça nos freios em uma descida de serra",
-        "description": "Freios aquecem nas descidas, perdem força e recuperam eficiência ao esfriar. Acompanhe caminhão e carretas no HUD.",
+        "description": "Freios aquecem nas descidas, perdem força e recuperam eficiência ao esfriar. Acompanhe caminhão e carretas no HUD. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
         "compatibility": "ETS2 1.62.3.3 · ATS 1.62.2.2 experimental",
         "requirements": [
           "Windows x64, DirectX 11 e modo individual.",
@@ -83,7 +83,7 @@
       "en": {
         "label": "Realism & physics",
         "alt": "Illustrative artwork of a truck with smoking brakes on a mountain descent",
-        "description": "Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD.",
+        "description": "Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD. In-game, the default shortcut for the plugins menu is Shift+F12.",
         "compatibility": "ETS2 1.62.3.3 · experimental ATS 1.62.2.2",
         "requirements": [
           "Windows x64, DirectX 11 and single player.",
@@ -121,7 +121,7 @@
       "pt-BR": {
         "label": "Realismo & física",
         "alt": "Arte ilustrativa de pneus de caminhão, do novo ao desgastado",
-        "description": "Cada quilômetro deixa sua marca. Desgaste visual dos pneus e estouros que você sente no volante.",
+        "description": "Cada quilômetro deixa sua marca. Desgaste visual dos pneus e estouros que você sente no volante. No jogo, o atalho padrão do menu de plugins é Shift+F12.",
         "compatibility": "ETS2 1.61–1.62 · ATS 1.61",
         "requirements": [
           "Windows 10/11 de 64 bits e DirectX 11.",
@@ -133,7 +133,7 @@
       "en": {
         "label": "Realism & physics",
         "alt": "Illustrative artwork of truck tires, from new to worn",
-        "description": "Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel.",
+        "description": "Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel. In-game, the default shortcut for the plugins menu is Shift+F12.",
         "compatibility": "ETS2 1.61–1.62 · ATS 1.61 tested",
         "requirements": [
           "Windows 10/11 64-bit and DirectX 11.",
