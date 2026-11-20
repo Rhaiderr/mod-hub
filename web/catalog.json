@@ -11,6 +11,14 @@
         "ets2",
         "ats"
       ],
+      "compatibility": {
+        "ets2": [
+          "1.62"
+        ],
+        "ats": [
+          "1.62"
+        ]
+      },
       "image": "assets/truck-dirt.jpg",
       "repository": "Rhaiderr/ets2-truck-dirt",
       "asset": "ets2-truck-dirt.zip",
@@ -66,6 +74,11 @@
         "ets2",
         "ats"
       ],
+      "compatibility": {
+        "ets2": [
+          "1.62.3.3"
+        ]
+      },
       "image": "assets/brake-fade.jpg",
       "repository": "Rhaiderr/ets2-ats-brake-fade",
       "asset": "ets2-ats-brake-fade.zip",
@@ -115,6 +128,14 @@
         "ets2",
         "ats"
       ],
+      "compatibility": {
+        "ets2": [
+          "1.61"
+        ],
+        "ats": [
+          "1.61"
+        ]
+      },
       "image": "assets/tire-wear.jpg",
       "repository": "Rhaiderr/ets2-tire-wear",
       "asset": "ets2-tire-wear.zip",
@@ -169,6 +190,11 @@
       "games": [
         "ets2"
       ],
+      "compatibility": {
+        "ets2": [
+          "1.62"
+        ]
+      },
       "image": "assets/carreta-guerra.jpg",
       "version": "0.5.0",
       "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3841679426",
@@ -208,6 +234,11 @@
       "games": [
         "ets2"
       ],
+      "compatibility": {
+        "ets2": [
+          "1.62"
+        ]
+      },
       "image": "assets/clima-real.jpg",
       "repository": "Rhaiderr/ets2-brbrasil-climate",
       "asset": "brbrasil-clima-real-verao.scs",

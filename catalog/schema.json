@@ -11,6 +11,7 @@
   "$defs": {
     "short": {"type": "string", "minLength": 1, "maxLength": 80},
     "long": {"type": "string", "minLength": 1, "maxLength": 400},
+    "lines": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "pattern": "^\\d+\\.\\d+(?:\\.\\d+)*$"}},
     "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$", "maxLength": 40},
     "text": {
       "type": "object",
@@ -52,6 +53,12 @@
         "category": {"enum": ["realismo", "visual", "clima", "carretas"]},
         "games": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["ets2", "ats"]}},
         "image": {"type": "string", "pattern": "^assets/[a-z0-9-]+\\.(?:jpg|png|webp)$"},
+        "compatibility": {
+          "description": "Game versions documented as tested (major.minor lines); read by the in-game Mod Hub.",
+          "type": "object",
+          "properties": {"ets2": {"$ref": "#/$defs/lines"}, "ats": {"$ref": "#/$defs/lines"}},
+          "additionalProperties": false
+        },
         "dll": {"type": "string", "pattern": "^[A-Za-z0-9_.-]{1,60}\\.dll$"},
         "repository": {"type": "string", "pattern": "^Rhaiderr/[A-Za-z0-9._-]{1,100}$"},
         "asset": {"type": "string", "pattern": "^[A-Za-z0-9._-]{1,100}$"},
@@ -66,7 +73,7 @@
           "additionalProperties": false
         }
       },
-      "required": ["id", "kind", "added", "name", "category", "games", "image", "text"],
+      "required": ["id", "kind", "added", "name", "category", "games", "compatibility", "image", "text"],
       "oneOf": [
         {"required": ["repository", "asset", "stable", "beta"], "not": {"anyOf": [{"required": ["version"]}, {"required": ["workshop_url"]}]}},
         {"required": ["version", "workshop_url"], "not": {"anyOf": [{"required": ["repository"]}, {"required": ["asset"]}]}}
