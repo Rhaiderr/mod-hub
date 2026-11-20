@@ -16,13 +16,15 @@ class CatalogTests(unittest.TestCase):
 
     def test_real_releases_and_channels(self):
         catalog = hub.build(self.plugins, self.fetch)
-        plugins = {plugin['id']: plugin for plugin in catalog['plugins']}
-        self.assertEqual(plugins['ets2-tire-wear']['stable']['version'], '0.3.2')
-        self.assertEqual(plugins['ets2-tire-wear']['beta']['version'], '0.3.2-beta')
-        self.assertEqual(plugins['ets2-truck-dirt']['stable']['version'], '0.1.6')
-        self.assertIsNone(plugins['ets2-ats-brake-fade']['stable'])
-        self.assertEqual(plugins['ets2-ats-brake-fade']['beta']['version'], '0.4.0-rc6')
-        self.assertNotIn('ats', plugins['ets2-brbrasil-climate']['compatibility'])
+        mods = {mod['id']: mod for mod in catalog['mods']}
+        self.assertEqual(mods['tire-wear']['stable']['version'], '0.3.2')
+        self.assertEqual(mods['tire-wear']['beta']['version'], '0.3.2-beta')
+        self.assertEqual(mods['truck-dirt']['stable']['version'], '0.1.6')
+        self.assertIsNone(mods['brake-fade']['stable'])
+        self.assertEqual(mods['brake-fade']['beta']['version'], '0.4.0-rc6')
+        self.assertEqual(mods['clima-real']['kind'], 'mod')
+        self.assertEqual(mods['carreta-guerra']['version'], '0.5.0')
+        self.assertNotIn('stable', mods['carreta-guerra'])
 
     def test_semver_order_and_invalid_versions(self):
         versions = ['1.0.0-alpha', '1.0.0-alpha.2', '1.0.0-alpha.10', '1.0.0-beta', '1.0.0-rc.1', '1.0.0', '1.0.10', '1.1.0']
@@ -31,12 +33,12 @@ class CatalogTests(unittest.TestCase):
             with self.assertRaises(ValueError): hub.version_key(value)
 
     def test_no_release_and_drafts(self):
-        self.assertIsNone(hub.build(self.plugins, lambda _: [])['plugins'][0]['stable'])
+        self.assertIsNone(hub.build(self.plugins, lambda _: [])['mods'][2]['stable'])
         def draft(repo):
             releases = self.fetch(repo)
             for r in releases: r['draft'] = True
             return releases
-        self.assertIsNone(hub.build(self.plugins, draft)['plugins'][0]['beta'])
+        self.assertIsNone(hub.build(self.plugins, draft)['mods'][2]['beta'])
 
     def test_new_release_and_unsorted_history(self):
         def updated(repo):
@@ -47,14 +49,20 @@ class CatalogTests(unittest.TestCase):
                 new['assets'][0]['browser_download_url'] = new['assets'][0]['browser_download_url'].replace('v0.1.6', 'v0.1.10')
                 releases.append(new)
             return releases
-        truck_dirt = next(plugin for plugin in hub.build(self.plugins, updated)['plugins'] if plugin['id'] == 'ets2-truck-dirt')
+        truck_dirt = next(mod for mod in hub.build(self.plugins, updated)['mods'] if mod['id'] == 'truck-dirt')
         self.assertEqual(truck_dirt['stable']['version'], '0.1.10')
 
     def test_invalid_catalog_and_duplicate_ids(self):
         catalog = hub.build(self.plugins, self.fetch)
         from jsonschema import ValidationError
-        with self.assertRaises(ValidationError): hub.validate({'schema_version':2,'plugins':[]})
-        catalog['plugins'].append(copy.deepcopy(catalog['plugins'][0]))
+        with self.assertRaises(ValidationError): hub.validate({'schema_version':1,'mods':[]})
+        without_dll = copy.deepcopy(catalog)
+        del without_dll['mods'][0]['dll']
+        with self.assertRaises(ValidationError): hub.validate(without_dll)
+        missing_image = copy.deepcopy(catalog)
+        missing_image['mods'][0]['image'] = 'assets/missing.jpg'
+        with self.assertRaises(ValueError): hub.validate(missing_image)
+        catalog['mods'].append(copy.deepcopy(catalog['mods'][0]))
         with self.assertRaises(ValueError): hub.validate(catalog)
 
     def test_untrusted_urls(self):
@@ -69,8 +77,17 @@ class CatalogTests(unittest.TestCase):
             releases[0]['assets'][0]['digest'] = None
             return releases
         with self.assertRaises(ValueError): hub.build(self.plugins, missing)
-        self.plugins[0]['repository'] = 'Rhaiderr/ets2-brake-fade'
+        self.plugins[0]['repository'] = 'someone-else/ets2-tire-wear'
         with self.assertRaises(ValueError): hub.build(self.plugins, self.fetch)
+
+    def test_replaced_package_under_same_version_is_rejected(self):
+        previous = hub.build(self.plugins, self.fetch)
+        self.assertEqual(hub.build(self.plugins, self.fetch, previous), previous)
+        def replaced(repo):
+            releases = self.fetch(repo)
+            releases[0]['assets'][0]['digest'] = 'sha256:' + '0'*64
+            return releases
+        with self.assertRaises(ValueError): hub.build(self.plugins, replaced, previous)
 
     def test_network_failure_preserves_previous_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,6 +1,9 @@
 (async () => {
-  const { mods, filterMods } = await import('./catalog.mjs?v=20261118-6');
-  const { detectLanguage, englishPage, englishAttributes, englishMods, ui } = await import('./i18n.mjs?v=20261118-6');
+  const { fromCatalog, filterMods } = await import('./catalog.mjs?v=20261119-1');
+  const { detectLanguage, englishPage, englishAttributes, ui } = await import('./i18n.mjs?v=20261119-1');
+  const response = await fetch('catalog.json', { cache: 'no-cache' });
+  if (!response.ok) throw new Error('Catalog unavailable');
+  const catalog = await response.json();
   let savedLanguage;
   try { savedLanguage = localStorage.getItem('mod-hub-language'); } catch { /* Storage can be unavailable in private browsing. */ }
   let language = detectLanguage(savedLanguage, navigator.languages?.length ? navigator.languages : [navigator.language]);
@@ -13,7 +16,7 @@
     return { node, attribute, en, pt: node.getAttribute(attribute) };
   });
   const text = () => ui[language];
-  const localizedMods = () => mods.map(mod => language === 'en' ? { ...mod, ...englishMods[mod.id] } : mod);
+  const localizedMods = () => fromCatalog(catalog, language);
   const state = { game: 'all', category: 'all', query: '', sort: 'featured' };
   const cards = document.querySelector('#cards');
   const details = document.querySelector('#details');
@@ -139,7 +142,7 @@
     for (const { node, en, pt } of pageTranslations) node.innerHTML = language === 'en' ? en : pt;
     for (const { node, attribute, en, pt } of attributeTranslations) node.setAttribute(attribute, language === 'en' ? en : pt);
     document.querySelector('#language').value = language;
-    document.querySelector('#total-count').textContent = String(mods.length).padStart(2, '0');
+    document.querySelector('#total-count').textContent = String(localizedMods().length).padStart(2, '0');
     render();
   }
   document.querySelector('#language').addEventListener('change', event => {
@@ -147,7 +150,14 @@
     try { localStorage.setItem('mod-hub-language', language); } catch { /* Keep the selection for this visit when storage is blocked. */ }
     applyLanguage();
   });
+  // Deep link (#tire-wear) used by the in-game Mod Hub to open a mod's details.
+  function openFromHash() {
+    const mod = localizedMods().find(item => item.id === location.hash.slice(1));
+    if (mod && !details.open) showDetails(mod);
+  }
+  window.addEventListener('hashchange', openFromHash);
   applyLanguage();
+  openFromHash();
 })().catch(() => {
   document.querySelector('#cards').textContent = document.documentElement.lang === 'en' ? 'The catalog could not be loaded. Refresh the page to try again.' : 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.';
 });

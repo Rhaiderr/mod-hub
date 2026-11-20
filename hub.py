@@ -42,12 +42,14 @@ def validate(catalog):
     schema = json.loads((ROOT / 'catalog/schema.json').read_text())
     Draft202012Validator(schema).validate(catalog)
     ids = set()
-    for plugin in catalog['plugins']:
+    for plugin in catalog['mods']:
         if plugin['id'] in ids:
             raise ValueError('Duplicate plugin ID')
         ids.add(plugin['id'])
+        if not (ROOT / 'web' / plugin['image']).is_file():
+            raise ValueError('Missing cover image')
         for channel in ('stable', 'beta'):
-            release = plugin[channel]
+            release = plugin.get(channel)
             if release is None:
                 continue
             key = version_key(release['version'])
@@ -60,12 +62,18 @@ def validate(catalog):
     return catalog
 
 
-def build(plugins, fetch):
+def build(plugins, fetch, previous=None):
+    # The curated plugins.json is the allowlist; the schema restricts repositories to the Rhaiderr owner.
+    published = {(p['id'], p[c]['version']): p[c]['sha256'] for p in (previous or {}).get('mods', [])
+                 for c in ('stable', 'beta') if p.get(c)}
     result = []
     for plugin in plugins:
-        repo = plugin['repository']
-        if repo not in {'Rhaiderr/ets2-tire-wear', 'Rhaiderr/ets2-truck-dirt', 'Rhaiderr/ets2-ats-brake-fade', 'Rhaiderr/ets2-brbrasil-climate'}:
-            raise ValueError('Repository not in public allowlist')
+        repo = plugin.get('repository')
+        if repo is None:  # Steam Workshop item: version is curated, Steam handles updates.
+            result.append(plugin)
+            continue
+        if not re.fullmatch(r'Rhaiderr/[A-Za-z0-9._-]+', repo):
+            raise ValueError('Repository outside the Rhaiderr account')
         releases = fetch(repo)
         channels = {'stable': None, 'beta': None}
         for release in releases:
@@ -84,6 +92,8 @@ def build(plugins, fetch):
             expected = f'https://github.com/{repo}/releases/download/{quote(release["tag_name"], safe="")}/{quote(plugin["asset"], safe="")}'
             if url != expected:
                 raise ValueError('Asset does not match its release')
+            if published.get((plugin['id'], release['tag_name'].removeprefix('v')), digest[7:]) != digest[7:]:
+                raise ValueError('Published package changed without a new version; retain previous catalog')
             current = channels[channel]
             if current is None or key > version_key(current['version']):
                 channels[channel] = {'version': release['tag_name'].removeprefix('v'),
@@ -92,7 +102,7 @@ def build(plugins, fetch):
                     'release_url': f'https://github.com/{repo}/releases/tag/{quote(release["tag_name"], safe="")}'}
         # Release bodies can contain historical personal data; link to notes instead.
         result.append({**plugin, **channels})
-    return validate({'schema_version': 1, 'plugins': result})
+    return validate({'schema_version': 2, 'mods': result})
 
 
 def fetch_releases(repo):
@@ -142,11 +152,12 @@ def main():
     parser.add_argument('--file', type=Path)
     parser.add_argument('--sha256')
     args = parser.parse_args()
-    path = ROOT / 'catalog/manifest.json'
+    path = ROOT / 'web/catalog.json'
     if args.command == 'sync':
         fetch = fetch_releases if args.fixtures is None else lambda repo: json.loads((args.fixtures / (repo.split('/')[1] + '.json')).read_text())
         plugins = json.loads((ROOT / 'catalog/plugins.json').read_text())
-        write_catalog(build(plugins, fetch), path)
+        previous = json.loads(path.read_text()) if path.exists() else None
+        write_catalog(build(plugins, fetch, previous), path)
         print('Catalog synchronized and validated')
     elif args.command == 'validate':
         validate(json.loads(path.read_text()))

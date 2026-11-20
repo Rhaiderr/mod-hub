@@ -1,0 +1,250 @@
+{
+  "schema_version": 2,
+  "mods": [
+    {
+      "id": "truck-dirt",
+      "kind": "plugin",
+      "added": "2026-11-18",
+      "name": "Truck Dirt",
+      "category": "visual",
+      "games": [
+        "ets2",
+        "ats"
+      ],
+      "image": "assets/truck-dirt.jpg",
+      "repository": "Rhaiderr/ets2-truck-dirt",
+      "asset": "ets2-truck-dirt.zip",
+      "dll": "ets2_truck_dirt.dll",
+      "text": {
+        "pt-BR": {
+          "label": "Visual & imersão",
+          "alt": "Arte ilustrativa de um caminhão com poeira e lama na estrada",
+          "description": "Poeira, lama e as histórias do caminho. Seu caminhão fica sujo de verdade, de acordo com a estrada e o clima.",
+          "compatibility": "ETS2 / ATS · versão testada 1.62",
+          "requirements": [
+            "Windows 10/11 de 64 bits e DirectX 11.",
+            "Single player; renderização desativada em multiplayer.",
+            "Compatibilidade conforme documentação; revisão pendente."
+          ],
+          "installation": "Com o jogo fechado, copie todo o conteúdo da pasta plugins do ZIP, incluindo os mapas premap, para bin/win_x64/plugins. Preserve seu INI existente."
+        },
+        "en": {
+          "label": "Visuals & immersion",
+          "alt": "Illustrative artwork of a truck with road dust and mud",
+          "description": "Dust, mud and stories from the road. Your truck gets dirty as you drive, following the road surface and weather.",
+          "compatibility": "ETS2 / ATS · tested on 1.62",
+          "requirements": [
+            "Windows 10/11 64-bit and DirectX 11.",
+            "Single player; rendering is disabled in multiplayer.",
+            "Compatibility follows the documentation; review pending."
+          ],
+          "installation": "With the game closed, copy everything in the ZIP’s plugins folder, including the premap maps, to bin/win_x64/plugins. Keep your existing INI."
+        }
+      },
+      "stable": {
+        "version": "0.1.7",
+        "published_at": "2026-11-19T21:15:44Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.7/ets2-truck-dirt.zip",
+        "sha256": "d71607f9c0d70be809bd42381388531b14ccce8e0ef947bc9bdbd4804c0ca13f",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.7"
+      },
+      "beta": {
+        "version": "0.1.0-beta",
+        "published_at": "2026-11-18T16:54:27Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.0-beta/ets2-truck-dirt.zip",
+        "sha256": "b22f98039364815c5c97a80eaac9a12c272f2c19f1a36c39dc42d05e72fa0b25",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.0-beta"
+      }
+    },
+    {
+      "id": "brake-fade",
+      "kind": "plugin",
+      "added": "2026-11-18",
+      "name": "Brake Fade",
+      "category": "realismo",
+      "games": [
+        "ets2",
+        "ats"
+      ],
+      "image": "assets/brake-fade.jpg",
+      "repository": "Rhaiderr/ets2-ats-brake-fade",
+      "asset": "ets2-ats-brake-fade.zip",
+      "dll": "brake_fade_br.dll",
+      "text": {
+        "pt-BR": {
+          "label": "Realismo & física",
+          "alt": "Arte ilustrativa de um caminhão com fumaça nos freios em uma descida de serra",
+          "description": "Freios aquecem nas descidas, perdem força e recuperam eficiência ao esfriar. Acompanhe caminhão e carretas no HUD.",
+          "compatibility": "ETS2 1.62.3.3 · ATS 1.62.2.2 experimental",
+          "requirements": [
+            "Windows x64, DirectX 11 e modo individual.",
+            "ETS2 1.62.3.3 testado no jogo.",
+            "Perfil ATS 1.62.2.2 experimental, com validação em jogo e freio de serviço nativo pendentes."
+          ],
+          "installation": "Feche o jogo, extraia o ZIP completo e execute install.bat. Consulte o README para bibliotecas Steam personalizadas e para o perfil experimental do ATS."
+        },
+        "en": {
+          "label": "Realism & physics",
+          "alt": "Illustrative artwork of a truck with smoking brakes on a mountain descent",
+          "description": "Brakes heat up on descents, lose braking power and recover as they cool. Track the truck and trailers on the HUD.",
+          "compatibility": "ETS2 1.62.3.3 · experimental ATS 1.62.2.2",
+          "requirements": [
+            "Windows x64, DirectX 11 and single player.",
+            "ETS2 1.62.3.3 tested in-game.",
+            "Experimental ATS 1.62.2.2 profile. In-game validation and native service-brake fade are pending."
+          ],
+          "installation": "Close the game, extract the entire ZIP and run install.bat. See the README for custom Steam libraries and the experimental ATS profile."
+        }
+      },
+      "stable": null,
+      "beta": {
+        "version": "0.4.0-rc6",
+        "published_at": "2026-11-19T00:49:30Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.0-rc6/ets2-ats-brake-fade.zip",
+        "sha256": "79801ba4c894debccd8f30dcb8132a327f6e708c9ab0f6fa8b6a84ad060e9467",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.0-rc6"
+      }
+    },
+    {
+      "id": "tire-wear",
+      "kind": "plugin",
+      "added": "2026-11-18",
+      "name": "Tire Wear",
+      "category": "realismo",
+      "games": [
+        "ets2",
+        "ats"
+      ],
+      "image": "assets/tire-wear.jpg",
+      "repository": "Rhaiderr/ets2-tire-wear",
+      "asset": "ets2-tire-wear.zip",
+      "dll": "ets2_tire_wear.dll",
+      "text": {
+        "pt-BR": {
+          "label": "Realismo & física",
+          "alt": "Arte ilustrativa de pneus de caminhão, do novo ao desgastado",
+          "description": "Cada quilômetro deixa sua marca. Desgaste visual dos pneus e estouros que você sente no volante.",
+          "compatibility": "ETS2 / ATS · versão testada 1.61",
+          "requirements": [
+            "Windows 10/11 de 64 bits e DirectX 11.",
+            "Single player. Pneus de mods não têm desgaste visual.",
+            "Compatibilidade conforme documentação; revisão pendente."
+          ],
+          "installation": "Com o jogo fechado, copie a DLL e o INI para bin/win_x64/plugins. Preserve seu INI se já tiver uma configuração própria."
+        },
+        "en": {
+          "label": "Realism & physics",
+          "alt": "Illustrative artwork of truck tires, from new to worn",
+          "description": "Every mile leaves its mark. Visual tire wear and blowouts you can feel through the wheel.",
+          "compatibility": "ETS2 / ATS · tested on 1.61",
+          "requirements": [
+            "Windows 10/11 64-bit and DirectX 11.",
+            "Single player. Modded tires do not show visual wear.",
+            "Compatibility follows the documentation; review pending."
+          ],
+          "installation": "With the game closed, copy the DLL and INI to bin/win_x64/plugins. Keep your existing INI if you have your own settings."
+        }
+      },
+      "stable": {
+        "version": "0.3.2",
+        "published_at": "2026-11-18T16:38:35Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2/ets2-tire-wear.zip",
+        "sha256": "aec8c4b6999a42b4f0bd415c881d63ed41eb7d37f258ae19edd05a663752d2a0",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2"
+      },
+      "beta": {
+        "version": "0.3.2-beta",
+        "published_at": "2026-11-18T16:38:54Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2-beta/ets2-tire-wear.zip",
+        "sha256": "de0e867a9188007dbbc9efa1f553f8d024750df6fb7f6e790caff431af9b816d",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2-beta"
+      }
+    },
+    {
+      "id": "carreta-guerra",
+      "kind": "mod",
+      "added": "2026-11-18",
+      "name": "Carreta Guerra",
+      "category": "carretas",
+      "games": [
+        "ets2"
+      ],
+      "image": "assets/carreta-guerra.jpg",
+      "version": "0.5.0",
+      "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3841679426",
+      "text": {
+        "pt-BR": {
+          "label": "Carretas & composições",
+          "alt": "Arte ilustrativa Guerra BR com carretas graneleiras e as composições 4 eixos, Vanderléia, bitrem e rodotrem",
+          "description": "O peso e a presença das estradas brasileiras. Quatro composições Guerra: 4 eixos, Vanderléia, bitrem e rodotrem.",
+          "compatibility": "ETS2 · versão testada 1.62",
+          "requirements": [
+            "Euro Truck Simulator 2 1.62.",
+            "Não exige DLCs nem outro mod de carreta.",
+            "Sem suporte ao ATS; multiplayer não testado."
+          ],
+          "installation": "Inscreva-se no item da Steam Workshop e ative Guerra BR no Gerenciador de Mods do ETS2."
+        },
+        "en": {
+          "label": "Trailers & combinations",
+          "alt": "Illustrative Guerra BR artwork with grain trailers: 4-axle, Vanderléia, bitrem and rodotrem",
+          "description": "The weight and presence of Brazilian roads. Four Guerra combinations: 4-axle, Vanderléia, bitrem and rodotrem.",
+          "compatibility": "ETS2 · tested on 1.62",
+          "requirements": [
+            "Euro Truck Simulator 2 1.62.",
+            "No DLC or other trailer mod required.",
+            "No ATS support; multiplayer is untested."
+          ],
+          "installation": "Subscribe to the item on Steam Workshop and activate Guerra BR in the ETS2 Mod Manager."
+        }
+      }
+    },
+    {
+      "id": "clima-real",
+      "kind": "mod",
+      "added": "2026-11-18",
+      "name": "Clima Real",
+      "category": "clima",
+      "games": [
+        "ets2"
+      ],
+      "image": "assets/clima-real.jpg",
+      "repository": "Rhaiderr/ets2-brbrasil-climate",
+      "asset": "brbrasil-clima-real-verao.scs",
+      "text": {
+        "pt-BR": {
+          "label": "Clima & ambiente",
+          "alt": "Arte ilustrativa de um caminhão atravessando uma paisagem brasileira",
+          "description": "O verão brasileiro acompanha sua rota. Temperaturas regionais e transições suaves para o mapa BR Brasil.",
+          "compatibility": "ETS2 1.62 · BR Brasil 6.1",
+          "requirements": [
+            "Euro Truck Simulator 2 1.62 com BR Brasil 6.1.",
+            "BR Brasil é necessário e não acompanha este mod.",
+            "Sem suporte ao ATS; compatibilidade com outros mods de clima não validada."
+          ],
+          "installation": "Faça backup do perfil. Copie o arquivo SCS para a pasta mod e ative Clima Real acima dos pacotes do BR Brasil no gerenciador de mods."
+        },
+        "en": {
+          "label": "Weather & environment",
+          "alt": "Illustrative artwork of a truck crossing a Brazilian landscape",
+          "description": "The Brazilian summer follows your route. Regional temperatures and smooth transitions for the BR Brasil map.",
+          "compatibility": "ETS2 1.62 · BR Brasil 6.1",
+          "requirements": [
+            "Euro Truck Simulator 2 1.62 with BR Brasil 6.1.",
+            "BR Brasil is required and is not included.",
+            "No ATS support; compatibility with other weather mods is untested."
+          ],
+          "installation": "Back up your profile. Copy the SCS file to the mod folder and activate Clima Real above the BR Brasil packages in the Mod Manager."
+        }
+      },
+      "stable": {
+        "version": "1.0.2",
+        "published_at": "2026-11-09T02:01:49Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/download/v1.0.2/brbrasil-clima-real-verao.scs",
+        "sha256": "dc197e7de5799b8d882b7ad06854e8837a34f9ef910486efb3e120e17c669e49",
+        "release_url": "https://github.com/Rhaiderr/ets2-brbrasil-climate/releases/tag/v1.0.2"
+      },
+      "beta": null
+    }
+  ]
+}

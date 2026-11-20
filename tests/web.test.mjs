@@ -1,8 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { detectLanguage, englishPage, englishAttributes, englishMods, ui } from '../web/i18n.mjs';
-import { mods, filterMods } from '../web/catalog.mjs';
+import { detectLanguage, englishPage, englishAttributes, ui } from '../web/i18n.mjs';
+import { fromCatalog, filterMods } from '../web/catalog.mjs';
 import { readFileSync, existsSync } from 'node:fs';
+
+const catalog = JSON.parse(readFileSync(new URL('../web/catalog.json', import.meta.url), 'utf8'));
+const mods = fromCatalog(catalog);
 
 test('catalog filters combine game, category and normalized search', () => {
   assert.equal(filterMods(mods).length, 5);
@@ -37,17 +40,27 @@ test('Carreta Guerra is ETS2-only and links to its Steam Workshop item', () => {
 });
 
 
-test('public mod downloads and README links match the manifest', () => {
+test('public mod downloads and README links come from the published catalog', () => {
   const publicMods = mods.filter(mod => mod.downloadUrl);
-  const manifest = JSON.parse(readFileSync(new URL('../catalog/manifest.json', import.meta.url), 'utf8'));
   assert.deepEqual(publicMods.map(mod => mod.id), ['truck-dirt', 'brake-fade', 'tire-wear', 'clima-real']);
   for (const mod of publicMods) {
-    const channel = mod.beta ? 'beta' : 'stable';
-    const plugin = manifest.plugins.find(plugin => plugin[channel]?.download_url === mod.downloadUrl);
-    assert.ok(plugin, mod.name);
-    assert.equal(mod.version, plugin[channel].version);
-    assert.equal(mod.repositoryUrl, `https://github.com/${plugin.repository}`);
+    const entry = catalog.mods.find(item => item.id === mod.id);
+    const release = entry.stable ?? entry.beta;
+    assert.equal(mod.beta, !entry.stable);
+    assert.equal(mod.version, release.version);
+    assert.equal(mod.downloadUrl, release.download_url);
+    assert.equal(mod.repositoryUrl, `https://github.com/${entry.repository}`);
   }
+  assert.deepEqual(catalog.mods.filter(mod => mod.kind === 'plugin').map(mod => mod.dll), ['ets2_truck_dirt.dll', 'brake_fade_br.dll', 'ets2_tire_wear.dll']);
+});
+
+test('new catalog entries appear without code changes and unreleased ones stay hidden', () => {
+  const added = structuredClone(catalog.mods[0]);
+  Object.assign(added, { id: 'novo-plugin', name: 'Novo Plugin' });
+  const unreleased = { ...structuredClone(catalog.mods[0]), id: 'em-breve', stable: null, beta: null };
+  const result = fromCatalog({ ...catalog, mods: [...catalog.mods, added, unreleased] });
+  assert.ok(result.some(mod => mod.id === 'novo-plugin'));
+  assert.ok(!result.some(mod => mod.id === 'em-breve'));
 });
 
 test('language detection respects preferred browser locale and saved choice', () => {
@@ -62,14 +75,12 @@ test('language detection respects preferred browser locale and saved choice', ()
 });
 
 test('English covers every mod, dynamic label and accessible attribute', () => {
-  assert.deepEqual(Object.keys(englishMods).sort(), mods.map(mod => mod.id).sort());
-  for (const mod of mods) {
-    const translated = englishMods[mod.id];
+  const translated = fromCatalog(catalog, 'en');
+  for (const mod of translated) {
     for (const key of ['label', 'alt', 'description', 'compatibility', 'installation']) {
-      assert.ok(translated[key]?.length, `${mod.id}: ${key}`);
+      assert.ok(mod[key]?.length, `${mod.id}: ${key}`);
     }
-    assert.equal(translated.requirements.length, mod.requirements.length);
-    assert.ok(translated.requirements.every(value => value.length));
+    assert.equal(mod.requirements.length, mods.find(item => item.id === mod.id).requirements.length);
   }
   assert.deepEqual(Object.keys(ui.en), Object.keys(ui['pt-BR']));
   assert.equal(ui.en.results(1), '1 mod found.');
@@ -77,7 +88,6 @@ test('English covers every mod, dynamic label and accessible attribute', () => {
   assert.match(ui.en.steamLabel('Guerra'), /Steam Workshop/);
   assert.ok(englishPage.some(([selector, label]) => selector === '.support h2' && label === 'Taking these mods on the road?'));
   assert.ok(englishAttributes.some(([selector, attribute]) => selector === '#search' && attribute === 'placeholder'));
-  const translated = mods.map(mod => ({...mod, ...englishMods[mod.id]}));
   assert.equal(filterMods(translated, {query:'blowouts', locale:'en'})[0].id, 'tire-wear');
   assert.equal(filterMods(translated, {game:'ats', category:'carretas', locale:'en'}).length, 0);
 });

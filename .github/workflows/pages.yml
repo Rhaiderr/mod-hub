@@ -13,6 +13,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
+    # Only main reaches the public site; a manual run from another branch (dev) is skipped.
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
