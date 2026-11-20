@@ -21,6 +21,11 @@
     "repository": "Rhaiderr/ets2-truck-dirt",
     "asset": "ets2-truck-dirt.zip",
     "dll": "ets2_truck_dirt.dll",
+    "package_requires": [
+      "ets2_truck_dirt.dll",
+      "ets2_truck_dirt.ini",
+      "ets2_truck_dirt_premap/"
+    ],
     "text": {
       "pt-BR": {
         "label": "Visual & imersão",
@@ -67,6 +72,12 @@
     "repository": "Rhaiderr/ets2-ats-brake-fade",
     "asset": "ets2-ats-brake-fade.zip",
     "dll": "brake_fade_br.dll",
+    "package_requires": [
+      "brake_fade_br.dll",
+      "brake_fade_br.ini",
+      "install.bat",
+      "scripts/Install.ps1"
+    ],
     "text": {
       "pt-BR": {
         "label": "Realismo & física",
@@ -117,6 +128,10 @@
     "repository": "Rhaiderr/ets2-tire-wear",
     "asset": "ets2-tire-wear.zip",
     "dll": "ets2_tire_wear.dll",
+    "package_requires": [
+      "ets2_tire_wear.dll",
+      "ets2_tire_wear.ini"
+    ],
     "text": {
       "pt-BR": {
         "label": "Realismo & física",

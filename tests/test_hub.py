@@ -3,7 +3,9 @@ import hashlib
 import json
 from pathlib import Path
 import tempfile
+import io
 import unittest
+import zipfile
 from unittest.mock import patch
 from urllib.error import URLError
 import hub
@@ -106,6 +108,61 @@ class CatalogTests(unittest.TestCase):
             path.write_bytes(b'package')
             hub.verify_file(path, hashlib.sha256(b'package').hexdigest())
             with self.assertRaises(ValueError): hub.verify_file(path, '0'*64)
+
+
+    @staticmethod
+    def package(names):
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, 'w') as archive:
+            for name in names:
+                archive.writestr(name, b'x')
+        return buffer.getvalue()
+
+    def test_package_must_hold_runtime_files(self):
+        requires = ['ets2_truck_dirt.dll', 'ets2_truck_dirt.ini', 'ets2_truck_dirt_premap/']
+        good = self.package(['td-0.1.10/plugins/ets2_truck_dirt.dll', 'td-0.1.10/plugins/ets2_truck_dirt.ini',
+                             'td-0.1.10/plugins/ets2_truck_dirt_premap/ets2_base.premap'])
+        hub.check_package(good, requires, hashlib.sha256(good).hexdigest())
+        for broken in (['plugins/ets2_truck_dirt.dll', 'plugins/ets2_truck_dirt.ini'],               # no premaps
+                       ['plugins/ets2_truck_dirt.dll', 'plugins/ets2_truck_dirt.ini', 'plugins/ets2_truck_dirt_premap/'],
+                       ['plugins/ets2_truck_dirt.dll', 'plugins/ets2_truck_dirt_premap/a.premap'],  # no INI
+                       ['plugins/old_ets2_truck_dirt.dll.bak', 'plugins/ets2_truck_dirt.ini',
+                        'plugins/ets2_truck_dirt_premap/a.premap']):                               # no DLL
+            data = self.package(broken)
+            with self.assertRaises(ValueError): hub.check_package(data, requires, hashlib.sha256(data).hexdigest())
+        with self.assertRaises(ValueError): hub.check_package(good, requires, '0' * 64)
+        with self.assertRaises(ValueError): hub.check_package(b'not a zip', requires, hashlib.sha256(b'not a zip').hexdigest())
+
+    def test_every_plugin_declares_its_runtime_files(self):
+        for plugin in self.plugins:
+            if plugin['kind'] == 'plugin':
+                self.assertIn(plugin['dll'], plugin['package_requires'], plugin['id'])
+        broken = copy.deepcopy(self.plugins)
+        del next(p for p in broken if p['kind'] == 'plugin')['package_requires']
+        with self.assertRaises(Exception): hub.build(broken, self.fetch)
+
+    def test_sync_rejects_new_incomplete_package(self):
+        def fetch_with(data):
+            def fetch(repo):
+                releases = self.fetch(repo)
+                for release in releases:
+                    for asset in release['assets']:
+                        asset['digest'] = 'sha256:' + hashlib.sha256(data).hexdigest()
+                return releases
+            return fetch
+        complete = self.package(['ets2_truck_dirt.dll', 'ets2_truck_dirt.ini', 'ets2_truck_dirt_premap/a.premap',
+                                 'brake_fade_br.dll', 'brake_fade_br.ini', 'install.bat', 'scripts/Install.ps1',
+                                 'ets2_tire_wear.dll', 'ets2_tire_wear.ini'])
+        downloads = []
+        hub.build(self.plugins, fetch_with(complete), None, lambda url: downloads.append(url) or complete)
+        self.assertTrue(any('ets2-truck-dirt' in url for url in downloads))
+        no_sound_ini = self.package(['brake_fade_br.dll', 'ets2_truck_dirt.dll', 'ets2_truck_dirt.ini',
+                                     'ets2_truck_dirt_premap/a.premap', 'ets2_tire_wear.dll', 'ets2_tire_wear.ini'])
+        with self.assertRaisesRegex(ValueError, 'brake_fade_br.ini'):
+            hub.build(self.plugins, fetch_with(no_sound_ini), None, lambda url: no_sound_ini)
+        previous = hub.build(self.plugins, fetch_with(complete))
+        self.assertEqual(hub.build(self.plugins, fetch_with(complete), previous,
+                                   lambda url: self.fail('re-download ' + url)), previous)
 
 
 if __name__ == '__main__':

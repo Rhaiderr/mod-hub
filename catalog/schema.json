@@ -60,6 +60,11 @@
           "additionalProperties": false
         },
         "dll": {"type": "string", "pattern": "^[A-Za-z0-9_.-]{1,60}\\.dll$"},
+        "package_requires": {
+          "description": "Files a plugin needs at runtime, checked inside every new release package. A trailing / is a folder that must hold files.",
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9_][A-Za-z0-9_./-]{0,119}$"}
+        },
         "repository": {"type": "string", "pattern": "^Rhaiderr/[A-Za-z0-9._-]{1,100}$"},
         "asset": {"type": "string", "pattern": "^[A-Za-z0-9._-]{1,100}$"},
         "stable": {"$ref": "#/$defs/release"},
@@ -79,7 +84,7 @@
         {"required": ["version", "workshop_url"], "not": {"anyOf": [{"required": ["repository"]}, {"required": ["asset"]}]}}
       ],
       "if": {"properties": {"kind": {"const": "plugin"}}},
-      "then": {"required": ["dll", "repository"]},
+      "then": {"required": ["dll", "repository", "package_requires"]},
       "additionalProperties": false
     }
   }

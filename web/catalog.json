@@ -23,6 +23,11 @@
       "repository": "Rhaiderr/ets2-truck-dirt",
       "asset": "ets2-truck-dirt.zip",
       "dll": "ets2_truck_dirt.dll",
+      "package_requires": [
+        "ets2_truck_dirt.dll",
+        "ets2_truck_dirt.ini",
+        "ets2_truck_dirt_premap/"
+      ],
       "text": {
         "pt-BR": {
           "label": "Visual & imersão",
@@ -83,6 +88,12 @@
       "repository": "Rhaiderr/ets2-ats-brake-fade",
       "asset": "ets2-ats-brake-fade.zip",
       "dll": "brake_fade_br.dll",
+      "package_requires": [
+        "brake_fade_br.dll",
+        "brake_fade_br.ini",
+        "install.bat",
+        "scripts/Install.ps1"
+      ],
       "text": {
         "pt-BR": {
           "label": "Realismo & física",
@@ -110,11 +121,11 @@
         }
       },
       "stable": {
-        "version": "0.4.3",
-        "published_at": "2026-11-20T15:23:09Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.3/ets2-ats-brake-fade.zip",
-        "sha256": "d2a69c92e8a63f146579baf54e1f6cc384e47fffa7a842a91cecf1dc0eab7a74",
-        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.3"
+        "version": "0.4.4",
+        "published_at": "2026-11-20T22:15:33Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.4/ets2-ats-brake-fade.zip",
+        "sha256": "bf64434de817cb2083c1087dcad54dde9512a482ffd36a7f602726a23910915e",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.4"
       },
       "beta": {
         "version": "0.4.0-rc6",
@@ -147,6 +158,10 @@
       "repository": "Rhaiderr/ets2-tire-wear",
       "asset": "ets2-tire-wear.zip",
       "dll": "ets2_tire_wear.dll",
+      "package_requires": [
+        "ets2_tire_wear.dll",
+        "ets2_tire_wear.ini"
+      ],
       "text": {
         "pt-BR": {
           "label": "Realismo & física",

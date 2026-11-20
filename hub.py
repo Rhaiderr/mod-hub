@@ -1,6 +1,7 @@
 """Public catalog builder. No credentials or game-folder writes."""
 import argparse
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -8,6 +9,7 @@ import re
 import tempfile
 from urllib.parse import quote, urlsplit
 from urllib.request import Request, urlopen
+import zipfile
 
 ROOT = Path(__file__).resolve().parent
 SEMVER = re.compile(r'^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$')
@@ -62,7 +64,36 @@ def validate(catalog):
     return catalog
 
 
-def build(plugins, fetch, previous=None):
+def check_package(data, requires, sha256):
+    """A new release must carry every file its plugin needs at runtime (sounds, INI, premaps...).
+
+    Entries may sit under a top folder (name-1.2.3/plugins/x.dll). `dir/` needs at least one file inside."""
+    if hashlib.sha256(data).hexdigest() != sha256:
+        raise ValueError('Downloaded package does not match its SHA-256')
+    try:
+        with zipfile.ZipFile(io.BytesIO(data)) as archive:
+            if archive.testzip() is not None:
+                raise ValueError('Corrupt package')
+            names = ['/' + n for n in archive.namelist() if not n.endswith('/')]
+    except zipfile.BadZipFile:
+        raise ValueError('Package is not a ZIP') from None
+    missing = [r for r in requires
+               if not any((('/' + r) in n and not n.endswith('/' + r.rstrip('/'))) if r.endswith('/')
+                          else n.endswith('/' + r) for n in names)]
+    if missing:
+        raise ValueError('Package is missing required files: ' + ', '.join(missing))
+
+
+def download_asset(url, limit=200 * 1024 * 1024):
+    request = Request(download_url(url, '/'.join(urlsplit(url).path.split('/')[1:3])), headers={'User-Agent': 'Mod-Hub'})
+    with urlopen(request, timeout=60) as response:
+        data = response.read(limit + 1)
+    if len(data) > limit:
+        raise ValueError('Package too large')
+    return data
+
+
+def build(plugins, fetch, previous=None, download=None):
     # The curated plugins.json is the allowlist; the schema restricts repositories to the Rhaiderr owner.
     published = {(p['id'], p[c]['version']): p[c]['sha256'] for p in (previous or {}).get('mods', [])
                  for c in ('stable', 'beta') if p.get(c)}
@@ -100,6 +131,13 @@ def build(plugins, fetch, previous=None):
                     'published_at': release['published_at'], 'download_url': url,
                     'sha256': digest[7:],
                     'release_url': f'https://github.com/{repo}/releases/tag/{quote(release["tag_name"], safe="")}'}
+        if download is not None and plugin.get('kind') == 'plugin':
+            requires = plugin.get('package_requires') or [plugin['dll']]
+            if plugin['dll'] not in requires:
+                raise ValueError('package_requires must list the plugin DLL')
+            for release in filter(None, channels.values()):
+                if (plugin['id'], release['version']) not in published:  # only new packages are downloaded
+                    check_package(download(release['download_url']), requires, release['sha256'])
         # Release bodies can contain historical personal data; link to notes instead.
         result.append({**plugin, **channels})
     return validate({'schema_version': 2, 'mods': result})
@@ -157,7 +195,8 @@ def main():
         fetch = fetch_releases if args.fixtures is None else lambda repo: json.loads((args.fixtures / (repo.split('/')[1] + '.json')).read_text())
         plugins = json.loads((ROOT / 'catalog/plugins.json').read_text())
         previous = json.loads(path.read_text()) if path.exists() else None
-        write_catalog(build(plugins, fetch, previous), path)
+        download = None if args.fixtures is not None else download_asset
+        write_catalog(build(plugins, fetch, previous, download), path)
         print('Catalog synchronized and validated')
     elif args.command == 'validate':
         validate(json.loads(path.read_text()))
