@@ -50,11 +50,11 @@
         }
       },
       "stable": {
-        "version": "0.1.7",
-        "published_at": "2026-11-19T21:15:44Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.7/ets2-truck-dirt.zip",
-        "sha256": "d71607f9c0d70be809bd42381388531b14ccce8e0ef947bc9bdbd4804c0ca13f",
-        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.7"
+        "version": "0.1.8",
+        "published_at": "2026-11-20T03:10:00Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/download/v0.1.8/ets2-truck-dirt.zip",
+        "sha256": "987ef07cc0514337fb50e8615b3008f6683c950bf68d7428bfb729841525e7cc",
+        "release_url": "https://github.com/Rhaiderr/ets2-truck-dirt/releases/tag/v0.1.8"
       },
       "beta": {
         "version": "0.1.0-beta",
@@ -109,7 +109,13 @@
           "installation": "Close the game, extract the entire ZIP and run install.bat. See the README for custom Steam libraries and the experimental ATS profile."
         }
       },
-      "stable": null,
+      "stable": {
+        "version": "0.4.0",
+        "published_at": "2026-11-20T03:09:54Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/download/v0.4.0/ets2-ats-brake-fade.zip",
+        "sha256": "64bb4751dd1b195fc368e08bb4cbc85aff49d9491c81bf908781328163fb7375",
+        "release_url": "https://github.com/Rhaiderr/ets2-ats-brake-fade/releases/tag/v0.4.0"
+      },
       "beta": {
         "version": "0.4.0-rc6",
         "published_at": "2026-11-19T00:49:30Z",
@@ -168,11 +174,11 @@
         }
       },
       "stable": {
-        "version": "0.3.2",
-        "published_at": "2026-11-18T16:38:35Z",
-        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.2/ets2-tire-wear.zip",
-        "sha256": "aec8c4b6999a42b4f0bd415c881d63ed41eb7d37f258ae19edd05a663752d2a0",
-        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.2"
+        "version": "0.3.3",
+        "published_at": "2026-11-20T03:09:57Z",
+        "download_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/download/v0.3.3/ets2-tire-wear.zip",
+        "sha256": "12462efa1fbfd6a3de51c91499055468381c0760b294465d7d3882a96d314ccc",
+        "release_url": "https://github.com/Rhaiderr/ets2-tire-wear/releases/tag/v0.3.3"
       },
       "beta": {
         "version": "0.3.2-beta",
